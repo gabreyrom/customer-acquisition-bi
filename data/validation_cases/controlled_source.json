@@ -1,0 +1,951 @@
+{
+  "campaign": [
+    {
+      "campaign_id": "G",
+      "channel": "GOOGLE_ADS",
+      "active_from": "2025-01-01",
+      "active_through": null
+    },
+    {
+      "campaign_id": "M",
+      "channel": "META_ADS",
+      "active_from": "2025-01-01",
+      "active_through": null
+    },
+    {
+      "campaign_id": "F",
+      "channel": "PAID_AFFILIATES",
+      "active_from": "2025-01-01",
+      "active_through": null
+    }
+  ],
+  "campaign_day": [
+    {
+      "campaign_id": "G",
+      "spend_date": "2025-02-26",
+      "recorded_at": "2025-02-26T23:00:00Z",
+      "actual_cents": 4200,
+      "eligible_cents": 4200,
+      "planned_cents": 4000
+    },
+    {
+      "campaign_id": "G",
+      "spend_date": "2025-03-02",
+      "recorded_at": "2025-03-02T23:00:00Z",
+      "actual_cents": 900,
+      "eligible_cents": 900,
+      "planned_cents": 1000
+    },
+    {
+      "campaign_id": "M",
+      "spend_date": "2025-03-01",
+      "recorded_at": "2025-03-01T23:00:00Z",
+      "actual_cents": 3000,
+      "eligible_cents": 3000,
+      "planned_cents": 2500
+    },
+    {
+      "campaign_id": "F",
+      "spend_date": "2025-03-02",
+      "recorded_at": "2025-03-02T23:00:00Z",
+      "actual_cents": 2000,
+      "eligible_cents": 2000,
+      "planned_cents": null
+    }
+  ],
+  "campaign_budget": [
+    {
+      "campaign_id": "M",
+      "period_start": "2025-03-01",
+      "period_kind": "MONTH",
+      "recorded_at": "2025-02-28T00:00:00Z",
+      "period_end_exclusive": "2025-04-01",
+      "budget_cents": 10000,
+      "target_cac_cents": 2500,
+      "target_activation": "0.40"
+    }
+  ],
+  "registration": [
+    {
+      "registration_id": "R1",
+      "registration_identity": "reg:1",
+      "visitor_identity": "web:v1",
+      "registration_at": "2025-03-01T00:00:00Z",
+      "recorded_at": "2025-03-01T00:00:00Z",
+      "state": "VALID"
+    },
+    {
+      "registration_id": "R2",
+      "registration_identity": "reg:2",
+      "visitor_identity": "web:v2",
+      "registration_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "state": "VALID"
+    },
+    {
+      "registration_id": "R3",
+      "registration_identity": "reg:3",
+      "visitor_identity": "web:v3",
+      "registration_at": "2025-03-03T00:00:00Z",
+      "recorded_at": "2025-03-03T00:00:00Z",
+      "state": "VALID"
+    },
+    {
+      "registration_id": "R4",
+      "registration_identity": "reg:4",
+      "visitor_identity": null,
+      "registration_at": "2025-03-04T00:00:00Z",
+      "recorded_at": "2025-03-04T00:00:00Z",
+      "state": "VALID"
+    },
+    {
+      "registration_id": "R5",
+      "registration_identity": "reg:5",
+      "visitor_identity": "web:v5",
+      "registration_at": "2026-06-28T00:00:00Z",
+      "recorded_at": "2026-06-28T00:00:00Z",
+      "state": "VALID"
+    },
+    {
+      "registration_id": "R6",
+      "registration_identity": "reg:6",
+      "visitor_identity": "web:v6",
+      "registration_at": "2025-03-04T00:00:00Z",
+      "recorded_at": "2025-03-04T00:00:00Z",
+      "state": "VALID"
+    },
+    {
+      "registration_id": "R7",
+      "registration_identity": "reg:7",
+      "visitor_identity": "web:v7",
+      "registration_at": "2025-03-04T00:00:00Z",
+      "recorded_at": "2025-03-04T00:00:00Z",
+      "state": "VALID"
+    },
+    {
+      "registration_id": "R8",
+      "registration_identity": "reg:8",
+      "visitor_identity": "web:v8",
+      "registration_at": "2025-03-05T00:00:00Z",
+      "recorded_at": "2025-03-05T00:00:00Z",
+      "state": "VALID"
+    }
+  ],
+  "identity_link": [
+    {
+      "identity_link_id": "L01",
+      "identity_key": "reg:1",
+      "canonical_customer_id": "C1",
+      "effective_from": "2025-01-01T00:00:00Z",
+      "effective_to": null,
+      "recorded_at": "2025-01-01T00:00:00Z",
+      "link_state": "CANDIDATE"
+    },
+    {
+      "identity_link_id": "L02",
+      "identity_key": "web:v1",
+      "canonical_customer_id": "C1",
+      "effective_from": "2025-01-01T00:00:00Z",
+      "effective_to": null,
+      "recorded_at": "2025-01-01T00:00:00Z",
+      "link_state": "CANDIDATE"
+    },
+    {
+      "identity_link_id": "L03",
+      "identity_key": "reg:2",
+      "canonical_customer_id": "C2",
+      "effective_from": "2025-01-01T00:00:00Z",
+      "effective_to": null,
+      "recorded_at": "2025-01-01T00:00:00Z",
+      "link_state": "CANDIDATE"
+    },
+    {
+      "identity_link_id": "L04",
+      "identity_key": "web:v2",
+      "canonical_customer_id": "C2",
+      "effective_from": "2025-01-01T00:00:00Z",
+      "effective_to": null,
+      "recorded_at": "2025-01-01T00:00:00Z",
+      "link_state": "CANDIDATE"
+    },
+    {
+      "identity_link_id": "L05",
+      "identity_key": "reg:3",
+      "canonical_customer_id": "C3",
+      "effective_from": "2025-01-01T00:00:00Z",
+      "effective_to": null,
+      "recorded_at": "2025-01-01T00:00:00Z",
+      "link_state": "CANDIDATE"
+    },
+    {
+      "identity_link_id": "L06",
+      "identity_key": "web:v3",
+      "canonical_customer_id": "C3",
+      "effective_from": "2025-01-01T00:00:00Z",
+      "effective_to": null,
+      "recorded_at": "2025-01-01T00:00:00Z",
+      "link_state": "CANDIDATE"
+    },
+    {
+      "identity_link_id": "L07",
+      "identity_key": "reg:4",
+      "canonical_customer_id": "C4",
+      "effective_from": "2025-01-01T00:00:00Z",
+      "effective_to": null,
+      "recorded_at": "2025-01-01T00:00:00Z",
+      "link_state": "CANDIDATE"
+    },
+    {
+      "identity_link_id": "L08",
+      "identity_key": "reg:5",
+      "canonical_customer_id": "C5",
+      "effective_from": "2025-01-01T00:00:00Z",
+      "effective_to": null,
+      "recorded_at": "2025-01-01T00:00:00Z",
+      "link_state": "CANDIDATE"
+    },
+    {
+      "identity_link_id": "L09",
+      "identity_key": "web:v5",
+      "canonical_customer_id": "C5",
+      "effective_from": "2025-01-01T00:00:00Z",
+      "effective_to": null,
+      "recorded_at": "2025-01-01T00:00:00Z",
+      "link_state": "CANDIDATE"
+    },
+    {
+      "identity_link_id": "L10",
+      "identity_key": "reg:7",
+      "canonical_customer_id": "C7",
+      "effective_from": "2025-01-01T00:00:00Z",
+      "effective_to": null,
+      "recorded_at": "2025-01-01T00:00:00Z",
+      "link_state": "CANDIDATE"
+    },
+    {
+      "identity_link_id": "L11",
+      "identity_key": "reg:7",
+      "canonical_customer_id": "C9",
+      "effective_from": "2025-01-01T00:00:00Z",
+      "effective_to": null,
+      "recorded_at": "2025-01-01T00:00:00Z",
+      "link_state": "CANDIDATE"
+    },
+    {
+      "identity_link_id": "L12",
+      "identity_key": "web:v7",
+      "canonical_customer_id": "C7",
+      "effective_from": "2025-01-01T00:00:00Z",
+      "effective_to": null,
+      "recorded_at": "2025-01-01T00:00:00Z",
+      "link_state": "CANDIDATE"
+    },
+    {
+      "identity_link_id": "L13",
+      "identity_key": "reg:8",
+      "canonical_customer_id": "C8",
+      "effective_from": "2025-01-01T00:00:00Z",
+      "effective_to": null,
+      "recorded_at": "2025-01-01T00:00:00Z",
+      "link_state": "CANDIDATE"
+    },
+    {
+      "identity_link_id": "L14",
+      "identity_key": "web:v8",
+      "canonical_customer_id": "C8",
+      "effective_from": "2025-01-01T00:00:00Z",
+      "effective_to": null,
+      "recorded_at": "2025-01-01T00:00:00Z",
+      "link_state": "CANDIDATE"
+    },
+    {
+      "identity_link_id": "L15",
+      "identity_key": "web:v8",
+      "canonical_customer_id": "C2",
+      "effective_from": "2025-01-01T00:00:00Z",
+      "effective_to": null,
+      "recorded_at": "2025-01-01T00:00:00Z",
+      "link_state": "CANDIDATE"
+    }
+  ],
+  "marketing_touch": [
+    {
+      "touch_id": "T01",
+      "visitor_identity": "web:v1",
+      "campaign_id": "F",
+      "touched_at": "2025-02-20T00:00:00Z",
+      "recorded_at": "2025-02-20T00:00:00Z",
+      "state": "ELIGIBLE"
+    },
+    {
+      "touch_id": "T02",
+      "visitor_identity": "web:v1",
+      "campaign_id": "G",
+      "touched_at": "2025-02-26T00:00:00Z",
+      "recorded_at": "2025-02-26T00:00:00Z",
+      "state": "ELIGIBLE"
+    },
+    {
+      "touch_id": "T03",
+      "visitor_identity": "web:v1",
+      "campaign_id": "M",
+      "touched_at": "2025-02-28T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "state": "ELIGIBLE"
+    },
+    {
+      "touch_id": "T04",
+      "visitor_identity": "web:v2",
+      "campaign_id": "M",
+      "touched_at": "2025-03-01T00:00:00Z",
+      "recorded_at": "2025-03-01T00:00:00Z",
+      "state": "ELIGIBLE"
+    },
+    {
+      "touch_id": "T05",
+      "visitor_identity": "web:v3",
+      "campaign_id": "F",
+      "touched_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "state": "ELIGIBLE"
+    },
+    {
+      "touch_id": "T06",
+      "visitor_identity": "web:v5",
+      "campaign_id": "M",
+      "touched_at": "2026-05-29T00:00:00Z",
+      "recorded_at": "2026-05-29T00:00:00Z",
+      "state": "ELIGIBLE"
+    },
+    {
+      "touch_id": "T07",
+      "visitor_identity": "web:v5",
+      "campaign_id": "G",
+      "touched_at": "2026-06-28T00:00:00Z",
+      "recorded_at": "2026-06-28T00:00:00Z",
+      "state": "ELIGIBLE"
+    },
+    {
+      "touch_id": "T08",
+      "visitor_identity": "web:v8",
+      "campaign_id": "F",
+      "touched_at": "2025-03-04T00:00:00Z",
+      "recorded_at": "2025-03-04T00:00:00Z",
+      "state": "ELIGIBLE"
+    }
+  ],
+  "registration_feature": [
+    {
+      "feature_id": "I1",
+      "registration_id": "R1",
+      "intent": "EVERYDAY",
+      "effective_at": "2025-03-01T00:00:00Z",
+      "recorded_at": "2025-03-01T00:00:00Z"
+    },
+    {
+      "feature_id": "I2",
+      "registration_id": "R2",
+      "intent": "EVERYDAY",
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z"
+    },
+    {
+      "feature_id": "I3",
+      "registration_id": "R3",
+      "intent": "EVERYDAY",
+      "effective_at": "2025-03-03T00:00:00Z",
+      "recorded_at": "2025-03-03T00:00:00Z"
+    },
+    {
+      "feature_id": "I4",
+      "registration_id": "R4",
+      "intent": "BORROW",
+      "effective_at": "2025-03-04T00:00:00Z",
+      "recorded_at": "2025-03-05T00:00:00Z"
+    }
+  ],
+  "product_account": [
+    {
+      "account_id": "S",
+      "owner_identity": "reg:1",
+      "product": "SAVINGS",
+      "opened_at": "2025-03-01T00:00:00Z",
+      "closed_at": null,
+      "recorded_at": "2025-03-01T00:00:00Z"
+    },
+    {
+      "account_id": "D",
+      "owner_identity": "reg:1",
+      "product": "DEBIT",
+      "opened_at": "2025-03-01T00:00:00Z",
+      "closed_at": null,
+      "recorded_at": "2025-03-01T00:00:00Z"
+    },
+    {
+      "account_id": "C",
+      "owner_identity": "reg:1",
+      "product": "CREDIT",
+      "opened_at": "2025-03-01T00:00:00Z",
+      "closed_at": null,
+      "recorded_at": "2025-03-01T00:00:00Z"
+    },
+    {
+      "account_id": "P",
+      "owner_identity": "reg:1",
+      "product": "PERSONAL",
+      "opened_at": "2025-03-01T00:00:00Z",
+      "closed_at": null,
+      "recorded_at": "2025-03-01T00:00:00Z"
+    },
+    {
+      "account_id": "H",
+      "owner_identity": "reg:1",
+      "product": "MORTGAGE",
+      "opened_at": "2025-03-01T00:00:00Z",
+      "closed_at": null,
+      "recorded_at": "2025-03-01T00:00:00Z"
+    }
+  ],
+  "product_activity_delivery": [
+    {
+      "delivery_id": "E001",
+      "source_key": "core:s-dep",
+      "account_id": "S",
+      "activity_code": "DEP_SETTLED",
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "state": "SETTLED",
+      "amount_cents": 100000,
+      "annual_rate": null,
+      "balance_kind": null,
+      "original_source_key": null,
+      "adjustment_kind": null,
+      "component": null
+    },
+    {
+      "delivery_id": "E002",
+      "source_key": "core:s-treas",
+      "account_id": "S",
+      "activity_code": "SAV_TREASURY_INCOME",
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "state": "POSTED",
+      "amount_cents": 100000,
+      "annual_rate": "0.073",
+      "balance_kind": "SAV_SETTLED_TREASURY",
+      "original_source_key": null,
+      "adjustment_kind": null,
+      "component": null
+    },
+    {
+      "delivery_id": "E003",
+      "source_key": "core:s-depi",
+      "account_id": "S",
+      "activity_code": "SAV_DEPOSIT_INTEREST",
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "state": "POSTED",
+      "amount_cents": 100000,
+      "annual_rate": "0.0365",
+      "balance_kind": "SAV_SETTLED_DEPOSITOR",
+      "original_source_key": null,
+      "adjustment_kind": null,
+      "component": null
+    },
+    {
+      "delivery_id": "E004",
+      "source_key": "core:s-fee",
+      "account_id": "S",
+      "activity_code": "SAV_FEE",
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "state": "POSTED",
+      "amount_cents": 250,
+      "annual_rate": null,
+      "balance_kind": null,
+      "original_source_key": null,
+      "adjustment_kind": null,
+      "component": null
+    },
+    {
+      "delivery_id": "E005",
+      "source_key": "core:s-fee",
+      "account_id": "S",
+      "activity_code": "SAV_FEE",
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "state": "POSTED",
+      "amount_cents": 250,
+      "annual_rate": null,
+      "balance_kind": null,
+      "original_source_key": null,
+      "adjustment_kind": null,
+      "component": null
+    },
+    {
+      "delivery_id": "E006",
+      "source_key": "core:s-service",
+      "account_id": "S",
+      "activity_code": "SAV_SERVICE",
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "state": "POSTED",
+      "amount_cents": 3,
+      "annual_rate": null,
+      "balance_kind": null,
+      "original_source_key": null,
+      "adjustment_kind": null,
+      "component": null
+    },
+    {
+      "delivery_id": "E007",
+      "source_key": "core:d-purchase",
+      "account_id": "D",
+      "activity_code": "PURCHASE_SETTLED",
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "state": "SETTLED",
+      "amount_cents": 10000,
+      "annual_rate": null,
+      "balance_kind": null,
+      "original_source_key": null,
+      "adjustment_kind": null,
+      "component": null
+    },
+    {
+      "delivery_id": "E008",
+      "source_key": "core:d-int",
+      "account_id": "D",
+      "activity_code": "DEBIT_INTERCHANGE",
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "state": "SETTLED",
+      "amount_cents": 150,
+      "annual_rate": null,
+      "balance_kind": null,
+      "original_source_key": null,
+      "adjustment_kind": null,
+      "component": null
+    },
+    {
+      "delivery_id": "E009",
+      "source_key": "core:d-process",
+      "account_id": "D",
+      "activity_code": "DEBIT_PROCESSING",
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "state": "SETTLED",
+      "amount_cents": 30,
+      "annual_rate": null,
+      "balance_kind": null,
+      "original_source_key": null,
+      "adjustment_kind": null,
+      "component": null
+    },
+    {
+      "delivery_id": "E010",
+      "source_key": "core:d-reward",
+      "account_id": "D",
+      "activity_code": "DEBIT_REWARD",
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "state": "POSTED",
+      "amount_cents": 20,
+      "annual_rate": null,
+      "balance_kind": null,
+      "original_source_key": null,
+      "adjustment_kind": null,
+      "component": null
+    },
+    {
+      "delivery_id": "E011",
+      "source_key": "core:d-refund",
+      "account_id": "D",
+      "activity_code": "PURCHASE_REFUND",
+      "effective_at": "2025-03-04T00:00:00Z",
+      "recorded_at": "2025-03-04T00:00:00Z",
+      "state": "SETTLED",
+      "amount_cents": 4000,
+      "annual_rate": null,
+      "balance_kind": null,
+      "original_source_key": "core:d-purchase",
+      "adjustment_kind": null,
+      "component": null
+    },
+    {
+      "delivery_id": "E012",
+      "source_key": "core:d-int-reduction",
+      "account_id": "D",
+      "activity_code": "ADJUSTMENT",
+      "effective_at": "2025-03-04T00:00:00Z",
+      "recorded_at": "2025-03-04T00:00:00Z",
+      "state": "POSTED",
+      "amount_cents": 60,
+      "annual_rate": null,
+      "balance_kind": null,
+      "original_source_key": "core:d-int",
+      "adjustment_kind": "LATER_REDUCTION",
+      "component": "DEBIT_INTERCHANGE"
+    },
+    {
+      "delivery_id": "E013",
+      "source_key": "core:d-reward-reduction",
+      "account_id": "D",
+      "activity_code": "ADJUSTMENT",
+      "effective_at": "2025-03-04T00:00:00Z",
+      "recorded_at": "2025-03-04T00:00:00Z",
+      "state": "POSTED",
+      "amount_cents": 8,
+      "annual_rate": null,
+      "balance_kind": null,
+      "original_source_key": "core:d-reward",
+      "adjustment_kind": "LATER_REDUCTION",
+      "component": "DEBIT_REWARD"
+    },
+    {
+      "delivery_id": "E014",
+      "source_key": "core:c-purchase",
+      "account_id": "C",
+      "activity_code": "PURCHASE_SETTLED",
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "state": "SETTLED",
+      "amount_cents": 10000,
+      "annual_rate": null,
+      "balance_kind": null,
+      "original_source_key": null,
+      "adjustment_kind": null,
+      "component": null
+    },
+    {
+      "delivery_id": "E015",
+      "source_key": "core:c-it",
+      "account_id": "C",
+      "activity_code": "CREDIT_INTERCHANGE",
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "state": "SETTLED",
+      "amount_cents": 160,
+      "annual_rate": null,
+      "balance_kind": null,
+      "original_source_key": null,
+      "adjustment_kind": null,
+      "component": null
+    },
+    {
+      "delivery_id": "E016",
+      "source_key": "core:c-interest",
+      "account_id": "C",
+      "activity_code": "CREDIT_INTEREST",
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "state": "POSTED",
+      "amount_cents": 100000,
+      "annual_rate": "0.219",
+      "balance_kind": "CREDIT_PERFORMING_REVOLVING",
+      "original_source_key": null,
+      "adjustment_kind": null,
+      "component": null
+    },
+    {
+      "delivery_id": "E017",
+      "source_key": "core:c-funding",
+      "account_id": "C",
+      "activity_code": "CREDIT_FUNDING",
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "state": "POSTED",
+      "amount_cents": 100000,
+      "annual_rate": "0.073",
+      "balance_kind": "CREDIT_FUNDED",
+      "original_source_key": null,
+      "adjustment_kind": null,
+      "component": null
+    },
+    {
+      "delivery_id": "E018",
+      "source_key": "core:c-loss",
+      "account_id": "C",
+      "activity_code": "CREDIT_LOSS",
+      "effective_at": "2025-04-02T00:00:00Z",
+      "recorded_at": "2025-04-02T00:00:00Z",
+      "state": "CONFIRMED",
+      "amount_cents": 300,
+      "annual_rate": null,
+      "balance_kind": null,
+      "original_source_key": null,
+      "adjustment_kind": null,
+      "component": null
+    },
+    {
+      "delivery_id": "E019",
+      "source_key": "core:c-recovery",
+      "account_id": "C",
+      "activity_code": "ADJUSTMENT",
+      "effective_at": "2025-05-02T00:00:00Z",
+      "recorded_at": "2025-05-02T00:00:00Z",
+      "state": "CONFIRMED",
+      "amount_cents": 100,
+      "annual_rate": null,
+      "balance_kind": null,
+      "original_source_key": "core:c-loss",
+      "adjustment_kind": "RECOVERY",
+      "component": "CREDIT_LOSS"
+    },
+    {
+      "delivery_id": "E020",
+      "source_key": "core:p-fund",
+      "account_id": "P",
+      "activity_code": "LOAN_FUNDING",
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "state": "SETTLED",
+      "amount_cents": 100000,
+      "annual_rate": null,
+      "balance_kind": null,
+      "original_source_key": null,
+      "adjustment_kind": null,
+      "component": null
+    },
+    {
+      "delivery_id": "E021",
+      "source_key": "core:p-interest",
+      "account_id": "P",
+      "activity_code": "PERSONAL_INTEREST",
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "state": "POSTED",
+      "amount_cents": 100000,
+      "annual_rate": "0.146",
+      "balance_kind": "PERSONAL_PERFORMING_PRINCIPAL",
+      "original_source_key": null,
+      "adjustment_kind": null,
+      "component": null
+    },
+    {
+      "delivery_id": "E022",
+      "source_key": "core:p-fundingcost",
+      "account_id": "P",
+      "activity_code": "PERSONAL_FUNDING",
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "state": "POSTED",
+      "amount_cents": 100000,
+      "annual_rate": "0.073",
+      "balance_kind": "PERSONAL_FUNDED",
+      "original_source_key": null,
+      "adjustment_kind": null,
+      "component": null
+    },
+    {
+      "delivery_id": "E023",
+      "source_key": "core:p-repayment",
+      "account_id": "P",
+      "activity_code": "PRINCIPAL_REPAYMENT",
+      "effective_at": "2025-03-10T00:00:00Z",
+      "recorded_at": "2025-03-10T00:00:00Z",
+      "state": "SETTLED",
+      "amount_cents": 10000,
+      "annual_rate": null,
+      "balance_kind": null,
+      "original_source_key": null,
+      "adjustment_kind": null,
+      "component": null
+    },
+    {
+      "delivery_id": "E024",
+      "source_key": "core:h-fund",
+      "account_id": "H",
+      "activity_code": "LOAN_FUNDING",
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "state": "SETTLED",
+      "amount_cents": 10000000,
+      "annual_rate": null,
+      "balance_kind": null,
+      "original_source_key": null,
+      "adjustment_kind": null,
+      "component": null
+    },
+    {
+      "delivery_id": "E025",
+      "source_key": "core:h-interest",
+      "account_id": "H",
+      "activity_code": "MORTGAGE_INTEREST",
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "state": "POSTED",
+      "amount_cents": 10000000,
+      "annual_rate": "0.073",
+      "balance_kind": "MORTGAGE_PERFORMING_PRINCIPAL",
+      "original_source_key": null,
+      "adjustment_kind": null,
+      "component": null
+    },
+    {
+      "delivery_id": "E026",
+      "source_key": "core:h-fundingcost",
+      "account_id": "H",
+      "activity_code": "MORTGAGE_FUNDING",
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "state": "POSTED",
+      "amount_cents": 10000000,
+      "annual_rate": "0.0365",
+      "balance_kind": "MORTGAGE_FUNDED",
+      "original_source_key": null,
+      "adjustment_kind": null,
+      "component": null
+    },
+    {
+      "delivery_id": "E027",
+      "source_key": "core:h-repayment",
+      "account_id": "H",
+      "activity_code": "PRINCIPAL_REPAYMENT",
+      "effective_at": "2025-03-10T00:00:00Z",
+      "recorded_at": "2025-03-10T00:00:00Z",
+      "state": "SETTLED",
+      "amount_cents": 10000,
+      "annual_rate": null,
+      "balance_kind": null,
+      "original_source_key": null,
+      "adjustment_kind": null,
+      "component": null
+    },
+    {
+      "delivery_id": "E028",
+      "source_key": "core:p-fee",
+      "account_id": "P",
+      "activity_code": "PERSONAL_FEE",
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "state": "POSTED",
+      "amount_cents": 200,
+      "annual_rate": null,
+      "balance_kind": null,
+      "original_source_key": null,
+      "adjustment_kind": null,
+      "component": null
+    },
+    {
+      "delivery_id": "E029",
+      "source_key": "core:p-correct",
+      "account_id": "P",
+      "activity_code": "ADJUSTMENT",
+      "effective_at": "2025-03-11T00:00:00Z",
+      "recorded_at": "2025-03-12T00:00:00Z",
+      "state": "POSTED",
+      "amount_cents": 50,
+      "annual_rate": null,
+      "balance_kind": null,
+      "original_source_key": "core:p-fee",
+      "adjustment_kind": "RESTATEMENT_REDUCTION",
+      "component": "PERSONAL_FEE"
+    },
+    {
+      "delivery_id": "E030",
+      "source_key": "core:h-fee",
+      "account_id": "H",
+      "activity_code": "MORTGAGE_FEE",
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "state": "POSTED",
+      "amount_cents": 30000,
+      "annual_rate": null,
+      "balance_kind": null,
+      "original_source_key": null,
+      "adjustment_kind": null,
+      "component": null
+    },
+    {
+      "delivery_id": "E031",
+      "source_key": "core:h-origination",
+      "account_id": "H",
+      "activity_code": "MORTGAGE_ORIGINATION",
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "state": "POSTED",
+      "amount_cents": 20000,
+      "annual_rate": null,
+      "balance_kind": null,
+      "original_source_key": null,
+      "adjustment_kind": null,
+      "component": null
+    },
+    {
+      "delivery_id": "E032",
+      "source_key": "core:s-boundary-30",
+      "account_id": "S",
+      "activity_code": "SAV_FEE",
+      "effective_at": "2025-03-31T00:00:00Z",
+      "recorded_at": "2025-03-31T00:00:00Z",
+      "state": "POSTED",
+      "amount_cents": 30,
+      "annual_rate": null,
+      "balance_kind": null,
+      "original_source_key": null,
+      "adjustment_kind": null,
+      "component": null
+    },
+    {
+      "delivery_id": "E033",
+      "source_key": "core:s-boundary-90",
+      "account_id": "S",
+      "activity_code": "SAV_FEE",
+      "effective_at": "2025-05-30T00:00:00Z",
+      "recorded_at": "2025-05-30T00:00:00Z",
+      "state": "POSTED",
+      "amount_cents": 90,
+      "annual_rate": null,
+      "balance_kind": null,
+      "original_source_key": null,
+      "adjustment_kind": null,
+      "component": null
+    },
+    {
+      "delivery_id": "E034",
+      "source_key": "core:s-boundary-180",
+      "account_id": "S",
+      "activity_code": "SAV_FEE",
+      "effective_at": "2025-08-28T00:00:00Z",
+      "recorded_at": "2025-08-28T00:00:00Z",
+      "state": "POSTED",
+      "amount_cents": 180,
+      "annual_rate": null,
+      "balance_kind": null,
+      "original_source_key": null,
+      "adjustment_kind": null,
+      "component": null
+    },
+    {
+      "delivery_id": "E035",
+      "source_key": "core:s-boundary-365",
+      "account_id": "S",
+      "activity_code": "SAV_FEE",
+      "effective_at": "2026-03-01T00:00:00Z",
+      "recorded_at": "2026-03-01T00:00:00Z",
+      "state": "POSTED",
+      "amount_cents": 365,
+      "annual_rate": null,
+      "balance_kind": null,
+      "original_source_key": null,
+      "adjustment_kind": null,
+      "component": null
+    },
+    {
+      "delivery_id": "E036",
+      "source_key": "core:s-late",
+      "account_id": "S",
+      "activity_code": "SAV_FEE",
+      "effective_at": "2025-03-20T00:00:00Z",
+      "recorded_at": "2026-07-02T00:00:00Z",
+      "state": "POSTED",
+      "amount_cents": 125,
+      "annual_rate": null,
+      "balance_kind": null,
+      "original_source_key": null,
+      "adjustment_kind": null,
+      "component": null
+    }
+  ]
+}

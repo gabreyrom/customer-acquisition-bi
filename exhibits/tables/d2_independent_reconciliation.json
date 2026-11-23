@@ -1,0 +1,95 @@
+{
+  "status": "MATCHED",
+  "source_delivery_disposition": {
+    "NON_ECONOMIC": 23703,
+    "RECOGNIZED": 827038,
+    "LATE_RECORD": 23,
+    "DUPLICATE_DELIVERY": 22
+  },
+  "product_totals_cents": {
+    "SAVINGS": {
+      "REVENUE": 4874031,
+      "COST": 2644038
+    },
+    "CREDIT": {
+      "REVENUE": 6791282,
+      "COST": 16295920
+    },
+    "DEBIT": {
+      "REVENUE": 917288,
+      "COST": 813030
+    },
+    "PERSONAL": {
+      "REVENUE": 19562832,
+      "COST": 8589240
+    },
+    "MORTGAGE": {
+      "REVENUE": 184925580,
+      "COST": 96121144
+    }
+  },
+  "revenue_cents": 217071013,
+  "cost_cents": 124463372,
+  "eligible_spend_cents_per_method": 33067679,
+  "acquisitions": 5000,
+  "attribution_counts": {
+    "MATCHED": 4512,
+    "NO_ELIGIBLE_TOUCH": 284,
+    "MISSING_VISITOR_LINK": 161,
+    "AMBIGUOUS_VISITOR_LINK": 43
+  },
+  "allocation_rows_matched": 6896,
+  "forecast_rows_matched": 40000,
+  "history_rows_matched": 20000,
+  "calendar_cohort_rows_matched": 576,
+  "worked_90d_by_product_cents": {
+    "SAVINGS": {
+      "REVENUE": 1725,
+      "events": 151,
+      "COST": 929
+    },
+    "DEBIT": {
+      "REVENUE": 415,
+      "events": 11,
+      "COST": 373
+    },
+    "CREDIT": {
+      "REVENUE": 5135,
+      "events": 133,
+      "COST": 2033
+    },
+    "PERSONAL": {
+      "REVENUE": 13544,
+      "events": 98,
+      "COST": 4610
+    },
+    "MORTGAGE": {
+      "REVENUE": 114048,
+      "events": 86,
+      "COST": 94751
+    }
+  },
+  "forecast_365_by_channel": {
+    "PAID_AFFILIATES": {
+      "BASELINE": 5944404,
+      "customers": 1147,
+      "EQUAL_CHANNEL": 6604710
+    },
+    "META_ADS": {
+      "BASELINE": 9656860,
+      "customers": 1760,
+      "EQUAL_CHANNEL": 10164465
+    },
+    "GOOGLE_ADS": {
+      "BASELINE": 9203670,
+      "customers": 1605,
+      "EQUAL_CHANNEL": 9203670
+    },
+    "UNKNOWN": {
+      "BASELINE": 2794185,
+      "customers": 488,
+      "EQUAL_CHANNEL": 2794185
+    }
+  },
+  "contribution_cents": 92607641
+}

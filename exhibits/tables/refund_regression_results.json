@@ -1,0 +1,324 @@
+{
+  "build": "C-1.0.1",
+  "regression_fixture_sha256": "b7dbd9b0c07918ee33830f432aac3891869555f1ce790099ec72886743154e22",
+  "results": [
+    {
+      "case": "cross_account_original_probe",
+      "expected": {
+        "accepted_deliveries": [
+          "E011"
+        ],
+        "net_purchase_cents": 6000,
+        "purchase_qualifies": true,
+        "activation_status": "QUALIFIED",
+        "exceptions": [
+          [
+            "E_D2_BAD_REFUND",
+            "INVALID_REFERENCE",
+            "ACCOUNT_OR_CUSTOMER_MISMATCH"
+          ]
+        ]
+      },
+      "observed": {
+        "accepted_deliveries": [
+          "E011"
+        ],
+        "net_purchase_cents": 6000,
+        "purchase_qualifies": true,
+        "activation_status": "QUALIFIED",
+        "exceptions": [
+          [
+            "E_D2_BAD_REFUND",
+            "INVALID_REFERENCE",
+            "ACCOUNT_OR_CUSTOMER_MISMATCH"
+          ]
+        ]
+      },
+      "status": "PASS",
+      "scratch_input_sha256": "b8535077cfa268cced4e84c97c59c8cc6662e681359f5916d3cc41eaa1210332"
+    },
+    {
+      "case": "missing_purchase",
+      "expected": {
+        "accepted_deliveries": [],
+        "net_purchase_cents": 10000,
+        "purchase_qualifies": true,
+        "activation_status": "QUALIFIED",
+        "exceptions": [
+          [
+            "E_R_MISSING",
+            "INVALID_REFERENCE",
+            "MISSING_OR_NON_PURCHASE_ORIGINAL"
+          ]
+        ]
+      },
+      "observed": {
+        "accepted_deliveries": [],
+        "net_purchase_cents": 10000,
+        "purchase_qualifies": true,
+        "activation_status": "QUALIFIED",
+        "exceptions": [
+          [
+            "E_R_MISSING",
+            "INVALID_REFERENCE",
+            "MISSING_OR_NON_PURCHASE_ORIGINAL"
+          ]
+        ]
+      },
+      "status": "PASS",
+      "scratch_input_sha256": "260847b07e1b0e94d980ad3b79a83574c23242cbab87f0def861ac7b614a8291"
+    },
+    {
+      "case": "over_original",
+      "expected": {
+        "accepted_deliveries": [],
+        "net_purchase_cents": 10000,
+        "purchase_qualifies": true,
+        "activation_status": "QUALIFIED",
+        "exceptions": [
+          [
+            "E_R_OVER",
+            "OVER_REVERSAL",
+            "CUMULATIVE_REFUND_EXCEEDS_PURCHASE"
+          ]
+        ]
+      },
+      "observed": {
+        "accepted_deliveries": [],
+        "net_purchase_cents": 10000,
+        "purchase_qualifies": true,
+        "activation_status": "QUALIFIED",
+        "exceptions": [
+          [
+            "E_R_OVER",
+            "OVER_REVERSAL",
+            "CUMULATIVE_REFUND_EXCEEDS_PURCHASE"
+          ]
+        ]
+      },
+      "status": "PASS",
+      "scratch_input_sha256": "2f8c94df15523fb03722fcbfccd97e8e7afda46c0f2152bb05ed9c4959340b1d"
+    },
+    {
+      "case": "cumulative_cap_and_recovery",
+      "expected": {
+        "accepted_deliveries": [
+          "E_R_CAP1",
+          "E_R_CAP3"
+        ],
+        "net_purchase_cents": 3000,
+        "purchase_qualifies": true,
+        "activation_status": "QUALIFIED",
+        "exceptions": [
+          [
+            "E_R_CAP2",
+            "OVER_REVERSAL",
+            "CUMULATIVE_REFUND_EXCEEDS_PURCHASE"
+          ]
+        ]
+      },
+      "observed": {
+        "accepted_deliveries": [
+          "E_R_CAP1",
+          "E_R_CAP3"
+        ],
+        "net_purchase_cents": 3000,
+        "purchase_qualifies": true,
+        "activation_status": "QUALIFIED",
+        "exceptions": [
+          [
+            "E_R_CAP2",
+            "OVER_REVERSAL",
+            "CUMULATIVE_REFUND_EXCEEDS_PURCHASE"
+          ]
+        ]
+      },
+      "status": "PASS",
+      "scratch_input_sha256": "b306a264407a27191ac05344cf189a3c81176fbd9374c4c46e117351b9ec8042"
+    },
+    {
+      "case": "partial",
+      "expected": {
+        "accepted_deliveries": [
+          "E_R_PART"
+        ],
+        "net_purchase_cents": 6000,
+        "purchase_qualifies": true,
+        "activation_status": "QUALIFIED",
+        "exceptions": []
+      },
+      "observed": {
+        "accepted_deliveries": [
+          "E_R_PART"
+        ],
+        "net_purchase_cents": 6000,
+        "purchase_qualifies": true,
+        "activation_status": "QUALIFIED",
+        "exceptions": []
+      },
+      "status": "PASS",
+      "scratch_input_sha256": "9f76f8b6396f8f84a34998d9bc42418a7316589d01d53e1c5f847b25b78f9344"
+    },
+    {
+      "case": "full",
+      "expected": {
+        "accepted_deliveries": [
+          "E_R_FULL"
+        ],
+        "net_purchase_cents": 0,
+        "purchase_qualifies": false,
+        "activation_status": "NO_QUALIFYING_EVENT",
+        "exceptions": []
+      },
+      "observed": {
+        "accepted_deliveries": [
+          "E_R_FULL"
+        ],
+        "net_purchase_cents": 0,
+        "purchase_qualifies": false,
+        "activation_status": "NO_QUALIFYING_EVENT",
+        "exceptions": []
+      },
+      "status": "PASS",
+      "scratch_input_sha256": "946ffe27d628b1a93ca3abb5d110248b8a767a10af2cd59b27c83cbb43943ef1"
+    },
+    {
+      "case": "duplicate_delivery",
+      "expected": {
+        "accepted_deliveries": [
+          "E_R_DUP1"
+        ],
+        "net_purchase_cents": 4000,
+        "purchase_qualifies": true,
+        "activation_status": "QUALIFIED",
+        "exceptions": [
+          [
+            "E_R_DUP2",
+            "DUPLICATE_DELIVERY",
+            null
+          ]
+        ]
+      },
+      "observed": {
+        "accepted_deliveries": [
+          "E_R_DUP1"
+        ],
+        "net_purchase_cents": 4000,
+        "purchase_qualifies": true,
+        "activation_status": "QUALIFIED",
+        "exceptions": [
+          [
+            "E_R_DUP2",
+            "DUPLICATE_DELIVERY",
+            null
+          ]
+        ]
+      },
+      "status": "PASS",
+      "scratch_input_sha256": "6c5c6e6742dd1571fad163c02b69ea31430632ee53a26a718756a01c5f041e72"
+    },
+    {
+      "case": "invalid_chronology",
+      "expected": {
+        "accepted_deliveries": [],
+        "net_purchase_cents": 10000,
+        "purchase_qualifies": true,
+        "activation_status": "QUALIFIED",
+        "exceptions": [
+          [
+            "E_R_TIME",
+            "INVALID_REFERENCE",
+            "REFUND_CHRONOLOGY"
+          ]
+        ]
+      },
+      "observed": {
+        "accepted_deliveries": [],
+        "net_purchase_cents": 10000,
+        "purchase_qualifies": true,
+        "activation_status": "QUALIFIED",
+        "exceptions": [
+          [
+            "E_R_TIME",
+            "INVALID_REFERENCE",
+            "REFUND_CHRONOLOGY"
+          ]
+        ]
+      },
+      "status": "PASS",
+      "scratch_input_sha256": "f0321bb3acb4d83b83e2bfd7e7d49cc9556e0adbd4087f8266ba59d912bffe94"
+    },
+    {
+      "case": "conflicting_delivery",
+      "expected": {
+        "accepted_deliveries": [],
+        "net_purchase_cents": 10000,
+        "purchase_qualifies": true,
+        "activation_status": "QUALIFIED",
+        "exceptions": [
+          [
+            "E_R_CONFLICT1",
+            "CONFLICTING_SOURCE_KEY",
+            null
+          ],
+          [
+            "E_R_CONFLICT2",
+            "CONFLICTING_SOURCE_KEY",
+            null
+          ]
+        ]
+      },
+      "observed": {
+        "accepted_deliveries": [],
+        "net_purchase_cents": 10000,
+        "purchase_qualifies": true,
+        "activation_status": "QUALIFIED",
+        "exceptions": [
+          [
+            "E_R_CONFLICT1",
+            "CONFLICTING_SOURCE_KEY",
+            null
+          ],
+          [
+            "E_R_CONFLICT2",
+            "CONFLICTING_SOURCE_KEY",
+            null
+          ]
+        ]
+      },
+      "status": "PASS",
+      "scratch_input_sha256": "7461f7f2ae240c38f5f26de732feff19253f6167768a984fe464eda1d23f675f"
+    },
+    {
+      "case": "original_not_settled",
+      "expected": {
+        "accepted_deliveries": [],
+        "net_purchase_cents": 10000,
+        "purchase_qualifies": false,
+        "activation_status": "NO_QUALIFYING_EVENT",
+        "exceptions": [
+          [
+            "E_R_PENDING",
+            "INVALID_STATE",
+            "REFUND_OR_PURCHASE_NOT_SETTLED"
+          ]
+        ]
+      },
+      "observed": {
+        "accepted_deliveries": [],
+        "net_purchase_cents": 10000,
+        "purchase_qualifies": false,
+        "activation_status": "NO_QUALIFYING_EVENT",
+        "exceptions": [
+          [
+            "E_R_PENDING",
+            "INVALID_STATE",
+            "REFUND_OR_PURCHASE_NOT_SETTLED"
+          ]
+        ]
+      },
+      "status": "PASS",
+      "scratch_input_sha256": "e7cffde4eb7d153ec109d65a4de25a372f97a51dfb3e8343e59a1c2ac4600979"
+    }
+  ]
+}

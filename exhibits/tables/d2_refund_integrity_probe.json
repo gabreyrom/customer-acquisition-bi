@@ -1,0 +1,34 @@
+{
+  "probe": "cross_account_refund",
+  "frozen_fixture_modified": false,
+  "test_row": {
+    "delivery_id": "E_D2_BAD_REFUND",
+    "source_key": "core:d2-bad-refund",
+    "account_id": "C",
+    "activity_code": "PURCHASE_REFUND",
+    "effective_at": "2025-03-04T00:00:00Z",
+    "recorded_at": "2025-03-04T00:00:00Z",
+    "state": "SETTLED",
+    "amount_cents": 10000,
+    "annual_rate": null,
+    "balance_kind": null,
+    "original_source_key": "core:d-purchase",
+    "adjustment_kind": null,
+    "component": null
+  },
+  "expected_activation": {
+    "customer_id": "C1",
+    "product": "DEBIT",
+    "status": "QUALIFIED",
+    "source_key": "core:d-purchase"
+  },
+  "observed_activation": {
+    "customer_id": "C1",
+    "product": "DEBIT",
+    "status": "NO_QUALIFYING_EVENT",
+    "source_key": null
+  },
+  "observed_exceptions": [],
+  "status": "FAIL",
+  "metadata_note": "Separate in-memory diagnostic only; source digest in generic fixture runner is for original file."
+}

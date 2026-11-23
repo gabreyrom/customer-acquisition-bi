@@ -1,0 +1,72 @@
+{
+  "source_fixture": "controlled_source.json",
+  "source_purchase": "core:d-purchase",
+  "source_purchase_cents": 10000,
+  "customer_id": "C1",
+  "product": "DEBIT",
+  "refund_template_delivery": "E011",
+  "cases": [
+    {
+      "id": "cross_account_original_probe",
+      "retain_template": true,
+      "refunds": [{"delivery_id": "E_D2_BAD_REFUND", "source_key": "core:d2-bad-refund", "account_id": "C", "amount_cents": 10000}],
+      "expected": {"accepted_deliveries": ["E011"], "net_purchase_cents": 6000, "purchase_qualifies": true, "activation_status": "QUALIFIED", "exceptions": [["E_D2_BAD_REFUND", "INVALID_REFERENCE", "ACCOUNT_OR_CUSTOMER_MISMATCH"]]}
+    },
+    {
+      "id": "missing_purchase",
+      "refunds": [{"delivery_id": "E_R_MISSING", "source_key": "core:r-missing", "original_source_key": "core:absent", "amount_cents": 10000}],
+      "expected": {"accepted_deliveries": [], "net_purchase_cents": 10000, "purchase_qualifies": true, "activation_status": "QUALIFIED", "exceptions": [["E_R_MISSING", "INVALID_REFERENCE", "MISSING_OR_NON_PURCHASE_ORIGINAL"]]}
+    },
+    {
+      "id": "over_original",
+      "refunds": [{"delivery_id": "E_R_OVER", "source_key": "core:r-over", "amount_cents": 10001}],
+      "expected": {"accepted_deliveries": [], "net_purchase_cents": 10000, "purchase_qualifies": true, "activation_status": "QUALIFIED", "exceptions": [["E_R_OVER", "OVER_REVERSAL", "CUMULATIVE_REFUND_EXCEEDS_PURCHASE"]]}
+    },
+    {
+      "id": "cumulative_cap_and_recovery",
+      "refunds": [
+        {"delivery_id": "E_R_CAP3", "source_key": "core:r-cap3", "amount_cents": 1000, "effective_at": "2025-03-06T00:00:00Z", "recorded_at": "2025-03-06T00:00:00Z"},
+        {"delivery_id": "E_R_CAP2", "source_key": "core:r-cap2", "amount_cents": 4500, "effective_at": "2025-03-05T00:00:00Z", "recorded_at": "2025-03-05T00:00:00Z"},
+        {"delivery_id": "E_R_CAP1", "source_key": "core:r-cap1", "amount_cents": 6000}
+      ],
+      "expected": {"accepted_deliveries": ["E_R_CAP1", "E_R_CAP3"], "net_purchase_cents": 3000, "purchase_qualifies": true, "activation_status": "QUALIFIED", "exceptions": [["E_R_CAP2", "OVER_REVERSAL", "CUMULATIVE_REFUND_EXCEEDS_PURCHASE"]]}
+    },
+    {
+      "id": "partial",
+      "refunds": [{"delivery_id": "E_R_PART", "source_key": "core:r-part", "amount_cents": 4000}],
+      "expected": {"accepted_deliveries": ["E_R_PART"], "net_purchase_cents": 6000, "purchase_qualifies": true, "activation_status": "QUALIFIED", "exceptions": []}
+    },
+    {
+      "id": "full",
+      "refunds": [{"delivery_id": "E_R_FULL", "source_key": "core:r-full", "amount_cents": 10000}],
+      "expected": {"accepted_deliveries": ["E_R_FULL"], "net_purchase_cents": 0, "purchase_qualifies": false, "activation_status": "NO_QUALIFYING_EVENT", "exceptions": []}
+    },
+    {
+      "id": "duplicate_delivery",
+      "refunds": [
+        {"delivery_id": "E_R_DUP2", "source_key": "core:r-dup", "amount_cents": 6000},
+        {"delivery_id": "E_R_DUP1", "source_key": "core:r-dup", "amount_cents": 6000}
+      ],
+      "expected": {"accepted_deliveries": ["E_R_DUP1"], "net_purchase_cents": 4000, "purchase_qualifies": true, "activation_status": "QUALIFIED", "exceptions": [["E_R_DUP2", "DUPLICATE_DELIVERY", null]]}
+    },
+    {
+      "id": "invalid_chronology",
+      "refunds": [{"delivery_id": "E_R_TIME", "source_key": "core:r-time", "amount_cents": 10000, "effective_at": "2025-03-01T12:00:00Z", "recorded_at": "2025-03-01T12:00:00Z"}],
+      "expected": {"accepted_deliveries": [], "net_purchase_cents": 10000, "purchase_qualifies": true, "activation_status": "QUALIFIED", "exceptions": [["E_R_TIME", "INVALID_REFERENCE", "REFUND_CHRONOLOGY"]]}
+    },
+    {
+      "id": "conflicting_delivery",
+      "refunds": [
+        {"delivery_id": "E_R_CONFLICT1", "source_key": "core:r-conflict", "amount_cents": 4000},
+        {"delivery_id": "E_R_CONFLICT2", "source_key": "core:r-conflict", "amount_cents": 10000}
+      ],
+      "expected": {"accepted_deliveries": [], "net_purchase_cents": 10000, "purchase_qualifies": true, "activation_status": "QUALIFIED", "exceptions": [["E_R_CONFLICT1", "CONFLICTING_SOURCE_KEY", null], ["E_R_CONFLICT2", "CONFLICTING_SOURCE_KEY", null]]}
+    },
+    {
+      "id": "original_not_settled",
+      "purchase_overrides": {"state": "PENDING"},
+      "refunds": [{"delivery_id": "E_R_PENDING", "source_key": "core:r-pending", "amount_cents": 4000}],
+      "expected": {"accepted_deliveries": [], "net_purchase_cents": 10000, "purchase_qualifies": false, "activation_status": "NO_QUALIFYING_EVENT", "exceptions": [["E_R_PENDING", "INVALID_STATE", "REFUND_OR_PURCHASE_NOT_SETTLED"]]}
+    }
+  ]
+}

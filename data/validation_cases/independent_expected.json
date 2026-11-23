@@ -1,0 +1,2587 @@
+{
+  "fixture_sha256": "c4abdae4c3072ad2aea1edf2f04d7fe4e0c397585bff2a0cbcf9ff4210608b49",
+  "status": "EXPECTED_ONLY",
+  "cutoffs": {
+    "effective_exclusive": "2026-07-01T00:00:00Z",
+    "primary_recorded_inclusive": "2026-07-01T00:00:00Z",
+    "replay_recorded_inclusive": "2026-07-03T00:00:00Z",
+    "pre_restatement_recorded_inclusive": "2025-03-11T00:00:00Z",
+    "post_restatement_recorded_inclusive": "2025-03-13T00:00:00Z"
+  },
+  "ledger": [
+    {
+      "delivery_id": "E002",
+      "source_key": "core:s-treas",
+      "account_id": "S",
+      "customer_id": "C1",
+      "event_code": "SAV_TREASURY_INCOME",
+      "event_class": "REVENUE",
+      "signed_cents": 20,
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "original_source_key": null,
+      "primary_visible": true,
+      "replay_visible": true
+    },
+    {
+      "delivery_id": "E003",
+      "source_key": "core:s-depi",
+      "account_id": "S",
+      "customer_id": "C1",
+      "event_code": "SAV_DEPOSIT_INTEREST",
+      "event_class": "COST",
+      "signed_cents": 10,
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "original_source_key": null,
+      "primary_visible": true,
+      "replay_visible": true
+    },
+    {
+      "delivery_id": "E004",
+      "source_key": "core:s-fee",
+      "account_id": "S",
+      "customer_id": "C1",
+      "event_code": "SAV_FEE",
+      "event_class": "REVENUE",
+      "signed_cents": 250,
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "original_source_key": null,
+      "primary_visible": true,
+      "replay_visible": true
+    },
+    {
+      "delivery_id": "E006",
+      "source_key": "core:s-service",
+      "account_id": "S",
+      "customer_id": "C1",
+      "event_code": "SAV_SERVICE",
+      "event_class": "COST",
+      "signed_cents": 3,
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "original_source_key": null,
+      "primary_visible": true,
+      "replay_visible": true
+    },
+    {
+      "delivery_id": "E008",
+      "source_key": "core:d-int",
+      "account_id": "D",
+      "customer_id": "C1",
+      "event_code": "DEBIT_INTERCHANGE",
+      "event_class": "REVENUE",
+      "signed_cents": 150,
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "original_source_key": null,
+      "primary_visible": true,
+      "replay_visible": true
+    },
+    {
+      "delivery_id": "E009",
+      "source_key": "core:d-process",
+      "account_id": "D",
+      "customer_id": "C1",
+      "event_code": "DEBIT_PROCESSING",
+      "event_class": "COST",
+      "signed_cents": 30,
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "original_source_key": null,
+      "primary_visible": true,
+      "replay_visible": true
+    },
+    {
+      "delivery_id": "E010",
+      "source_key": "core:d-reward",
+      "account_id": "D",
+      "customer_id": "C1",
+      "event_code": "DEBIT_REWARD",
+      "event_class": "COST",
+      "signed_cents": 20,
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "original_source_key": null,
+      "primary_visible": true,
+      "replay_visible": true
+    },
+    {
+      "delivery_id": "E012",
+      "source_key": "core:d-int-reduction",
+      "account_id": "D",
+      "customer_id": "C1",
+      "event_code": "DEBIT_INTERCHANGE",
+      "event_class": "REVENUE",
+      "signed_cents": -60,
+      "effective_at": "2025-03-04T00:00:00Z",
+      "recorded_at": "2025-03-04T00:00:00Z",
+      "original_source_key": "core:d-int",
+      "primary_visible": true,
+      "replay_visible": true
+    },
+    {
+      "delivery_id": "E013",
+      "source_key": "core:d-reward-reduction",
+      "account_id": "D",
+      "customer_id": "C1",
+      "event_code": "DEBIT_REWARD",
+      "event_class": "COST",
+      "signed_cents": -8,
+      "effective_at": "2025-03-04T00:00:00Z",
+      "recorded_at": "2025-03-04T00:00:00Z",
+      "original_source_key": "core:d-reward",
+      "primary_visible": true,
+      "replay_visible": true
+    },
+    {
+      "delivery_id": "E015",
+      "source_key": "core:c-it",
+      "account_id": "C",
+      "customer_id": "C1",
+      "event_code": "CREDIT_INTERCHANGE",
+      "event_class": "REVENUE",
+      "signed_cents": 160,
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "original_source_key": null,
+      "primary_visible": true,
+      "replay_visible": true
+    },
+    {
+      "delivery_id": "E016",
+      "source_key": "core:c-interest",
+      "account_id": "C",
+      "customer_id": "C1",
+      "event_code": "CREDIT_INTEREST",
+      "event_class": "REVENUE",
+      "signed_cents": 60,
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "original_source_key": null,
+      "primary_visible": true,
+      "replay_visible": true
+    },
+    {
+      "delivery_id": "E017",
+      "source_key": "core:c-funding",
+      "account_id": "C",
+      "customer_id": "C1",
+      "event_code": "CREDIT_FUNDING",
+      "event_class": "COST",
+      "signed_cents": 20,
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "original_source_key": null,
+      "primary_visible": true,
+      "replay_visible": true
+    },
+    {
+      "delivery_id": "E018",
+      "source_key": "core:c-loss",
+      "account_id": "C",
+      "customer_id": "C1",
+      "event_code": "CREDIT_LOSS",
+      "event_class": "COST",
+      "signed_cents": 300,
+      "effective_at": "2025-04-02T00:00:00Z",
+      "recorded_at": "2025-04-02T00:00:00Z",
+      "original_source_key": null,
+      "primary_visible": true,
+      "replay_visible": true
+    },
+    {
+      "delivery_id": "E019",
+      "source_key": "core:c-recovery",
+      "account_id": "C",
+      "customer_id": "C1",
+      "event_code": "CREDIT_LOSS",
+      "event_class": "COST",
+      "signed_cents": -100,
+      "effective_at": "2025-05-02T00:00:00Z",
+      "recorded_at": "2025-05-02T00:00:00Z",
+      "original_source_key": "core:c-loss",
+      "primary_visible": true,
+      "replay_visible": true
+    },
+    {
+      "delivery_id": "E021",
+      "source_key": "core:p-interest",
+      "account_id": "P",
+      "customer_id": "C1",
+      "event_code": "PERSONAL_INTEREST",
+      "event_class": "REVENUE",
+      "signed_cents": 40,
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "original_source_key": null,
+      "primary_visible": true,
+      "replay_visible": true
+    },
+    {
+      "delivery_id": "E022",
+      "source_key": "core:p-fundingcost",
+      "account_id": "P",
+      "customer_id": "C1",
+      "event_code": "PERSONAL_FUNDING",
+      "event_class": "COST",
+      "signed_cents": 20,
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "original_source_key": null,
+      "primary_visible": true,
+      "replay_visible": true
+    },
+    {
+      "delivery_id": "E025",
+      "source_key": "core:h-interest",
+      "account_id": "H",
+      "customer_id": "C1",
+      "event_code": "MORTGAGE_INTEREST",
+      "event_class": "REVENUE",
+      "signed_cents": 2000,
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "original_source_key": null,
+      "primary_visible": true,
+      "replay_visible": true
+    },
+    {
+      "delivery_id": "E026",
+      "source_key": "core:h-fundingcost",
+      "account_id": "H",
+      "customer_id": "C1",
+      "event_code": "MORTGAGE_FUNDING",
+      "event_class": "COST",
+      "signed_cents": 1000,
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "original_source_key": null,
+      "primary_visible": true,
+      "replay_visible": true
+    },
+    {
+      "delivery_id": "E028",
+      "source_key": "core:p-fee",
+      "account_id": "P",
+      "customer_id": "C1",
+      "event_code": "PERSONAL_FEE",
+      "event_class": "REVENUE",
+      "signed_cents": 200,
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "original_source_key": null,
+      "primary_visible": true,
+      "replay_visible": true
+    },
+    {
+      "delivery_id": "E029",
+      "source_key": "core:p-correct",
+      "account_id": "P",
+      "customer_id": "C1",
+      "event_code": "PERSONAL_FEE",
+      "event_class": "REVENUE",
+      "signed_cents": -50,
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-12T00:00:00Z",
+      "original_source_key": "core:p-fee",
+      "primary_visible": true,
+      "replay_visible": true
+    },
+    {
+      "delivery_id": "E030",
+      "source_key": "core:h-fee",
+      "account_id": "H",
+      "customer_id": "C1",
+      "event_code": "MORTGAGE_FEE",
+      "event_class": "REVENUE",
+      "signed_cents": 30000,
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "original_source_key": null,
+      "primary_visible": true,
+      "replay_visible": true
+    },
+    {
+      "delivery_id": "E031",
+      "source_key": "core:h-origination",
+      "account_id": "H",
+      "customer_id": "C1",
+      "event_code": "MORTGAGE_ORIGINATION",
+      "event_class": "COST",
+      "signed_cents": 20000,
+      "effective_at": "2025-03-02T00:00:00Z",
+      "recorded_at": "2025-03-02T00:00:00Z",
+      "original_source_key": null,
+      "primary_visible": true,
+      "replay_visible": true
+    },
+    {
+      "delivery_id": "E032",
+      "source_key": "core:s-boundary-30",
+      "account_id": "S",
+      "customer_id": "C1",
+      "event_code": "SAV_FEE",
+      "event_class": "REVENUE",
+      "signed_cents": 30,
+      "effective_at": "2025-03-31T00:00:00Z",
+      "recorded_at": "2025-03-31T00:00:00Z",
+      "original_source_key": null,
+      "primary_visible": true,
+      "replay_visible": true
+    },
+    {
+      "delivery_id": "E033",
+      "source_key": "core:s-boundary-90",
+      "account_id": "S",
+      "customer_id": "C1",
+      "event_code": "SAV_FEE",
+      "event_class": "REVENUE",
+      "signed_cents": 90,
+      "effective_at": "2025-05-30T00:00:00Z",
+      "recorded_at": "2025-05-30T00:00:00Z",
+      "original_source_key": null,
+      "primary_visible": true,
+      "replay_visible": true
+    },
+    {
+      "delivery_id": "E034",
+      "source_key": "core:s-boundary-180",
+      "account_id": "S",
+      "customer_id": "C1",
+      "event_code": "SAV_FEE",
+      "event_class": "REVENUE",
+      "signed_cents": 180,
+      "effective_at": "2025-08-28T00:00:00Z",
+      "recorded_at": "2025-08-28T00:00:00Z",
+      "original_source_key": null,
+      "primary_visible": true,
+      "replay_visible": true
+    },
+    {
+      "delivery_id": "E035",
+      "source_key": "core:s-boundary-365",
+      "account_id": "S",
+      "customer_id": "C1",
+      "event_code": "SAV_FEE",
+      "event_class": "REVENUE",
+      "signed_cents": 365,
+      "effective_at": "2026-03-01T00:00:00Z",
+      "recorded_at": "2026-03-01T00:00:00Z",
+      "original_source_key": null,
+      "primary_visible": true,
+      "replay_visible": true
+    },
+    {
+      "delivery_id": "E036",
+      "source_key": "core:s-late",
+      "account_id": "S",
+      "customer_id": "C1",
+      "event_code": "SAV_FEE",
+      "event_class": "REVENUE",
+      "signed_cents": 125,
+      "effective_at": "2025-03-20T00:00:00Z",
+      "recorded_at": "2026-07-02T00:00:00Z",
+      "original_source_key": null,
+      "primary_visible": false,
+      "replay_visible": true
+    }
+  ],
+  "excluded": [
+    {
+      "delivery_id": "E001",
+      "source_key": "core:s-dep",
+      "reason": "NON_ECONOMIC"
+    },
+    {
+      "delivery_id": "E007",
+      "source_key": "core:d-purchase",
+      "reason": "NON_ECONOMIC"
+    },
+    {
+      "delivery_id": "E011",
+      "source_key": "core:d-refund",
+      "reason": "NON_ECONOMIC"
+    },
+    {
+      "delivery_id": "E014",
+      "source_key": "core:c-purchase",
+      "reason": "NON_ECONOMIC"
+    },
+    {
+      "delivery_id": "E020",
+      "source_key": "core:p-fund",
+      "reason": "NON_ECONOMIC"
+    },
+    {
+      "delivery_id": "E023",
+      "source_key": "core:p-repayment",
+      "reason": "NON_ECONOMIC"
+    },
+    {
+      "delivery_id": "E024",
+      "source_key": "core:h-fund",
+      "reason": "NON_ECONOMIC"
+    },
+    {
+      "delivery_id": "E027",
+      "source_key": "core:h-repayment",
+      "reason": "NON_ECONOMIC"
+    },
+    {
+      "delivery_id": "E005",
+      "source_key": "core:s-fee",
+      "reason": "DUPLICATE_DELIVERY"
+    },
+    {
+      "delivery_id": "E036",
+      "source_key": "core:s-late",
+      "reason": "AFTER_PRIMARY_RECORDED_CUTOFF"
+    }
+  ],
+  "product_totals": [
+    {
+      "account_id": "S",
+      "revenue_cents": 935,
+      "cost_cents": 13,
+      "contribution_cents": 922
+    },
+    {
+      "account_id": "D",
+      "revenue_cents": 90,
+      "cost_cents": 42,
+      "contribution_cents": 48
+    },
+    {
+      "account_id": "C",
+      "revenue_cents": 220,
+      "cost_cents": 220,
+      "contribution_cents": 0
+    },
+    {
+      "account_id": "P",
+      "revenue_cents": 190,
+      "cost_cents": 20,
+      "contribution_cents": 170
+    },
+    {
+      "account_id": "H",
+      "revenue_cents": 32000,
+      "cost_cents": 21000,
+      "contribution_cents": 11000
+    }
+  ],
+  "customer_all_visible": [
+    {
+      "customer_id": "C1",
+      "snapshot": "PRIMARY",
+      "revenue_cents": 33435,
+      "cost_cents": 21295,
+      "contribution_cents": 12140
+    },
+    {
+      "customer_id": "C1",
+      "snapshot": "REPLAY",
+      "revenue_cents": 33560,
+      "cost_cents": 21295,
+      "contribution_cents": 12265
+    }
+  ],
+  "restatement_trace": [
+    {
+      "source_key": "core:p-fee",
+      "snapshot": "PRE",
+      "fee_net_cents": 200,
+      "adjustment_present": false
+    },
+    {
+      "source_key": "core:p-fee",
+      "snapshot": "POST",
+      "fee_net_cents": 150,
+      "adjustment_present": true,
+      "adjustment_effective_at": "2025-03-02T00:00:00Z"
+    }
+  ],
+  "acquisition": [
+    {
+      "registration_id": "R1",
+      "customer_id": "C1",
+      "link_ids": [
+        "L01",
+        "L02"
+      ],
+      "touch_id": "T02",
+      "campaign_id": "G",
+      "status": "MATCHED"
+    },
+    {
+      "registration_id": "R2",
+      "customer_id": "C2",
+      "link_ids": [
+        "L03",
+        "L04"
+      ],
+      "touch_id": "T04",
+      "campaign_id": "M",
+      "status": "MATCHED"
+    },
+    {
+      "registration_id": "R3",
+      "customer_id": "C3",
+      "link_ids": [
+        "L05",
+        "L06"
+      ],
+      "touch_id": "T05",
+      "campaign_id": "F",
+      "status": "MATCHED"
+    },
+    {
+      "registration_id": "R4",
+      "customer_id": "C4",
+      "link_ids": [
+        "L07"
+      ],
+      "touch_id": null,
+      "campaign_id": null,
+      "status": "MISSING_VISITOR_LINK"
+    },
+    {
+      "registration_id": "R5",
+      "customer_id": "C5",
+      "link_ids": [
+        "L08",
+        "L09"
+      ],
+      "touch_id": "T06",
+      "campaign_id": "M",
+      "status": "MATCHED"
+    },
+    {
+      "registration_id": "R6",
+      "customer_id": null,
+      "link_ids": [],
+      "touch_id": null,
+      "campaign_id": null,
+      "status": "IDENTITY_MISSING"
+    },
+    {
+      "registration_id": "R7",
+      "customer_id": null,
+      "link_ids": [
+        "L10",
+        "L11",
+        "L12"
+      ],
+      "touch_id": null,
+      "campaign_id": null,
+      "status": "IDENTITY_AMBIGUOUS"
+    },
+    {
+      "registration_id": "R8",
+      "customer_id": "C8",
+      "link_ids": [
+        "L13",
+        "L14",
+        "L15"
+      ],
+      "touch_id": null,
+      "campaign_id": null,
+      "status": "AMBIGUOUS_VISITOR_LINK"
+    }
+  ],
+  "coverage": [
+    {
+      "period": "ALL",
+      "matched": 4,
+      "canonical": 6
+    },
+    {
+      "period": "2025-03",
+      "matched": 3,
+      "canonical": 5
+    },
+    {
+      "period": "2026-06",
+      "matched": 1,
+      "canonical": 1
+    }
+  ],
+  "spend_allocations": [
+    {
+      "campaign_id": "G",
+      "spend_date": "2025-02-26",
+      "allocated_cents": 4200,
+      "signup_month": "2025-02-01",
+      "method": "CALENDAR",
+      "lag_incomplete": false
+    },
+    {
+      "campaign_id": "G",
+      "spend_date": "2025-02-26",
+      "allocated_cents": 4200,
+      "signup_month": "2025-03-01",
+      "method": "TOUCH_WEIGHT",
+      "winner_count": 1,
+      "lag_incomplete": false
+    },
+    {
+      "campaign_id": "G",
+      "spend_date": "2025-03-02",
+      "allocated_cents": 900,
+      "signup_month": "2025-03-01",
+      "method": "CALENDAR",
+      "lag_incomplete": false
+    },
+    {
+      "campaign_id": "G",
+      "spend_date": "2025-03-02",
+      "allocated_cents": 900,
+      "signup_month": "2025-03-01",
+      "method": "TOUCH_WEIGHT",
+      "winner_count": 0,
+      "lag_incomplete": false
+    },
+    {
+      "campaign_id": "M",
+      "spend_date": "2025-03-01",
+      "allocated_cents": 3000,
+      "signup_month": "2025-03-01",
+      "method": "CALENDAR",
+      "lag_incomplete": false
+    },
+    {
+      "campaign_id": "M",
+      "spend_date": "2025-03-01",
+      "allocated_cents": 3000,
+      "signup_month": "2025-03-01",
+      "method": "TOUCH_WEIGHT",
+      "winner_count": 1,
+      "lag_incomplete": false
+    },
+    {
+      "campaign_id": "F",
+      "spend_date": "2025-03-02",
+      "allocated_cents": 2000,
+      "signup_month": "2025-03-01",
+      "method": "CALENDAR",
+      "lag_incomplete": false
+    },
+    {
+      "campaign_id": "F",
+      "spend_date": "2025-03-02",
+      "allocated_cents": 2000,
+      "signup_month": "2025-03-01",
+      "method": "TOUCH_WEIGHT",
+      "winner_count": 1,
+      "lag_incomplete": false
+    }
+  ],
+  "spend_reconciliation": [
+    {
+      "method": "CALENDAR",
+      "source_cents": 10100,
+      "allocated_cents": 10100,
+      "unallocated_cents": 0
+    },
+    {
+      "method": "TOUCH_WEIGHT",
+      "source_cents": 10100,
+      "allocated_cents": 10100,
+      "unallocated_cents": 0
+    }
+  ],
+  "customer_age": [
+    {
+      "snapshot": "PRIMARY",
+      "customer_id": "C1",
+      "age_days": 30,
+      "maturity": "MATURE",
+      "revenue_cents": 32770,
+      "cost_cents": 21095,
+      "contribution_cents": 11675
+    },
+    {
+      "snapshot": "PRIMARY",
+      "customer_id": "C1",
+      "age_days": 90,
+      "maturity": "MATURE",
+      "revenue_cents": 32800,
+      "cost_cents": 21295,
+      "contribution_cents": 11505
+    },
+    {
+      "snapshot": "PRIMARY",
+      "customer_id": "C1",
+      "age_days": 180,
+      "maturity": "MATURE",
+      "revenue_cents": 32890,
+      "cost_cents": 21295,
+      "contribution_cents": 11595
+    },
+    {
+      "snapshot": "PRIMARY",
+      "customer_id": "C1",
+      "age_days": 365,
+      "maturity": "MATURE",
+      "revenue_cents": 33070,
+      "cost_cents": 21295,
+      "contribution_cents": 11775
+    },
+    {
+      "snapshot": "PRIMARY",
+      "customer_id": "C2",
+      "age_days": 30,
+      "maturity": "MATURE",
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "PRIMARY",
+      "customer_id": "C2",
+      "age_days": 90,
+      "maturity": "MATURE",
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "PRIMARY",
+      "customer_id": "C2",
+      "age_days": 180,
+      "maturity": "MATURE",
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "PRIMARY",
+      "customer_id": "C2",
+      "age_days": 365,
+      "maturity": "MATURE",
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "PRIMARY",
+      "customer_id": "C3",
+      "age_days": 30,
+      "maturity": "MATURE",
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "PRIMARY",
+      "customer_id": "C3",
+      "age_days": 90,
+      "maturity": "MATURE",
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "PRIMARY",
+      "customer_id": "C3",
+      "age_days": 180,
+      "maturity": "MATURE",
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "PRIMARY",
+      "customer_id": "C3",
+      "age_days": 365,
+      "maturity": "MATURE",
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "PRIMARY",
+      "customer_id": "C4",
+      "age_days": 30,
+      "maturity": "MATURE",
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "PRIMARY",
+      "customer_id": "C4",
+      "age_days": 90,
+      "maturity": "MATURE",
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "PRIMARY",
+      "customer_id": "C4",
+      "age_days": 180,
+      "maturity": "MATURE",
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "PRIMARY",
+      "customer_id": "C4",
+      "age_days": 365,
+      "maturity": "MATURE",
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "PRIMARY",
+      "customer_id": "C5",
+      "age_days": 30,
+      "maturity": "PENDING",
+      "revenue_cents": null,
+      "cost_cents": null,
+      "contribution_cents": null
+    },
+    {
+      "snapshot": "PRIMARY",
+      "customer_id": "C5",
+      "age_days": 90,
+      "maturity": "PENDING",
+      "revenue_cents": null,
+      "cost_cents": null,
+      "contribution_cents": null
+    },
+    {
+      "snapshot": "PRIMARY",
+      "customer_id": "C5",
+      "age_days": 180,
+      "maturity": "PENDING",
+      "revenue_cents": null,
+      "cost_cents": null,
+      "contribution_cents": null
+    },
+    {
+      "snapshot": "PRIMARY",
+      "customer_id": "C5",
+      "age_days": 365,
+      "maturity": "PENDING",
+      "revenue_cents": null,
+      "cost_cents": null,
+      "contribution_cents": null
+    },
+    {
+      "snapshot": "PRIMARY",
+      "customer_id": "C8",
+      "age_days": 30,
+      "maturity": "MATURE",
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "PRIMARY",
+      "customer_id": "C8",
+      "age_days": 90,
+      "maturity": "MATURE",
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "PRIMARY",
+      "customer_id": "C8",
+      "age_days": 180,
+      "maturity": "MATURE",
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "PRIMARY",
+      "customer_id": "C8",
+      "age_days": 365,
+      "maturity": "MATURE",
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "REPLAY",
+      "customer_id": "C1",
+      "age_days": 30,
+      "maturity": "MATURE",
+      "revenue_cents": 32895,
+      "cost_cents": 21095,
+      "contribution_cents": 11800
+    },
+    {
+      "snapshot": "REPLAY",
+      "customer_id": "C1",
+      "age_days": 90,
+      "maturity": "MATURE",
+      "revenue_cents": 32925,
+      "cost_cents": 21295,
+      "contribution_cents": 11630
+    },
+    {
+      "snapshot": "REPLAY",
+      "customer_id": "C1",
+      "age_days": 180,
+      "maturity": "MATURE",
+      "revenue_cents": 33015,
+      "cost_cents": 21295,
+      "contribution_cents": 11720
+    },
+    {
+      "snapshot": "REPLAY",
+      "customer_id": "C1",
+      "age_days": 365,
+      "maturity": "MATURE",
+      "revenue_cents": 33195,
+      "cost_cents": 21295,
+      "contribution_cents": 11900
+    },
+    {
+      "snapshot": "REPLAY",
+      "customer_id": "C2",
+      "age_days": 30,
+      "maturity": "MATURE",
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "REPLAY",
+      "customer_id": "C2",
+      "age_days": 90,
+      "maturity": "MATURE",
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "REPLAY",
+      "customer_id": "C2",
+      "age_days": 180,
+      "maturity": "MATURE",
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "REPLAY",
+      "customer_id": "C2",
+      "age_days": 365,
+      "maturity": "MATURE",
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "REPLAY",
+      "customer_id": "C3",
+      "age_days": 30,
+      "maturity": "MATURE",
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "REPLAY",
+      "customer_id": "C3",
+      "age_days": 90,
+      "maturity": "MATURE",
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "REPLAY",
+      "customer_id": "C3",
+      "age_days": 180,
+      "maturity": "MATURE",
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "REPLAY",
+      "customer_id": "C3",
+      "age_days": 365,
+      "maturity": "MATURE",
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "REPLAY",
+      "customer_id": "C4",
+      "age_days": 30,
+      "maturity": "MATURE",
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "REPLAY",
+      "customer_id": "C4",
+      "age_days": 90,
+      "maturity": "MATURE",
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "REPLAY",
+      "customer_id": "C4",
+      "age_days": 180,
+      "maturity": "MATURE",
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "REPLAY",
+      "customer_id": "C4",
+      "age_days": 365,
+      "maturity": "MATURE",
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "REPLAY",
+      "customer_id": "C5",
+      "age_days": 30,
+      "maturity": "PENDING",
+      "revenue_cents": null,
+      "cost_cents": null,
+      "contribution_cents": null
+    },
+    {
+      "snapshot": "REPLAY",
+      "customer_id": "C5",
+      "age_days": 90,
+      "maturity": "PENDING",
+      "revenue_cents": null,
+      "cost_cents": null,
+      "contribution_cents": null
+    },
+    {
+      "snapshot": "REPLAY",
+      "customer_id": "C5",
+      "age_days": 180,
+      "maturity": "PENDING",
+      "revenue_cents": null,
+      "cost_cents": null,
+      "contribution_cents": null
+    },
+    {
+      "snapshot": "REPLAY",
+      "customer_id": "C5",
+      "age_days": 365,
+      "maturity": "PENDING",
+      "revenue_cents": null,
+      "cost_cents": null,
+      "contribution_cents": null
+    },
+    {
+      "snapshot": "REPLAY",
+      "customer_id": "C8",
+      "age_days": 30,
+      "maturity": "MATURE",
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "REPLAY",
+      "customer_id": "C8",
+      "age_days": 90,
+      "maturity": "MATURE",
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "REPLAY",
+      "customer_id": "C8",
+      "age_days": 180,
+      "maturity": "MATURE",
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "REPLAY",
+      "customer_id": "C8",
+      "age_days": 365,
+      "maturity": "MATURE",
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    }
+  ],
+  "activation": [
+    {
+      "customer_id": "C1",
+      "product": "SAVINGS",
+      "status": "QUALIFIED",
+      "qualifying_source_key": "core:s-dep",
+      "activation_at": "2025-03-02T00:00:00Z"
+    },
+    {
+      "customer_id": "C1",
+      "product": "DEBIT",
+      "status": "QUALIFIED",
+      "qualifying_source_key": "core:d-purchase",
+      "activation_at": "2025-03-02T00:00:00Z"
+    },
+    {
+      "customer_id": "C1",
+      "product": "CREDIT",
+      "status": "QUALIFIED",
+      "qualifying_source_key": "core:c-purchase",
+      "activation_at": "2025-03-02T00:00:00Z"
+    },
+    {
+      "customer_id": "C1",
+      "product": "PERSONAL",
+      "status": "QUALIFIED",
+      "qualifying_source_key": "core:p-fund",
+      "activation_at": "2025-03-02T00:00:00Z"
+    },
+    {
+      "customer_id": "C1",
+      "product": "MORTGAGE",
+      "status": "QUALIFIED",
+      "qualifying_source_key": "core:h-fund",
+      "activation_at": "2025-03-02T00:00:00Z"
+    },
+    {
+      "customer_id": "C2",
+      "product": "SAVINGS",
+      "status": "NO_QUALIFYING_EVENT",
+      "qualifying_source_key": null,
+      "activation_at": null
+    },
+    {
+      "customer_id": "C2",
+      "product": "DEBIT",
+      "status": "NO_QUALIFYING_EVENT",
+      "qualifying_source_key": null,
+      "activation_at": null
+    },
+    {
+      "customer_id": "C2",
+      "product": "CREDIT",
+      "status": "NO_QUALIFYING_EVENT",
+      "qualifying_source_key": null,
+      "activation_at": null
+    },
+    {
+      "customer_id": "C2",
+      "product": "PERSONAL",
+      "status": "NO_QUALIFYING_EVENT",
+      "qualifying_source_key": null,
+      "activation_at": null
+    },
+    {
+      "customer_id": "C2",
+      "product": "MORTGAGE",
+      "status": "NO_QUALIFYING_EVENT",
+      "qualifying_source_key": null,
+      "activation_at": null
+    },
+    {
+      "customer_id": "C3",
+      "product": "SAVINGS",
+      "status": "NO_QUALIFYING_EVENT",
+      "qualifying_source_key": null,
+      "activation_at": null
+    },
+    {
+      "customer_id": "C3",
+      "product": "DEBIT",
+      "status": "NO_QUALIFYING_EVENT",
+      "qualifying_source_key": null,
+      "activation_at": null
+    },
+    {
+      "customer_id": "C3",
+      "product": "CREDIT",
+      "status": "NO_QUALIFYING_EVENT",
+      "qualifying_source_key": null,
+      "activation_at": null
+    },
+    {
+      "customer_id": "C3",
+      "product": "PERSONAL",
+      "status": "NO_QUALIFYING_EVENT",
+      "qualifying_source_key": null,
+      "activation_at": null
+    },
+    {
+      "customer_id": "C3",
+      "product": "MORTGAGE",
+      "status": "NO_QUALIFYING_EVENT",
+      "qualifying_source_key": null,
+      "activation_at": null
+    },
+    {
+      "customer_id": "C4",
+      "product": "SAVINGS",
+      "status": "NO_QUALIFYING_EVENT",
+      "qualifying_source_key": null,
+      "activation_at": null
+    },
+    {
+      "customer_id": "C4",
+      "product": "DEBIT",
+      "status": "NO_QUALIFYING_EVENT",
+      "qualifying_source_key": null,
+      "activation_at": null
+    },
+    {
+      "customer_id": "C4",
+      "product": "CREDIT",
+      "status": "NO_QUALIFYING_EVENT",
+      "qualifying_source_key": null,
+      "activation_at": null
+    },
+    {
+      "customer_id": "C4",
+      "product": "PERSONAL",
+      "status": "NO_QUALIFYING_EVENT",
+      "qualifying_source_key": null,
+      "activation_at": null
+    },
+    {
+      "customer_id": "C4",
+      "product": "MORTGAGE",
+      "status": "NO_QUALIFYING_EVENT",
+      "qualifying_source_key": null,
+      "activation_at": null
+    },
+    {
+      "customer_id": "C5",
+      "product": "SAVINGS",
+      "status": "PENDING",
+      "qualifying_source_key": null,
+      "activation_at": null
+    },
+    {
+      "customer_id": "C5",
+      "product": "DEBIT",
+      "status": "PENDING",
+      "qualifying_source_key": null,
+      "activation_at": null
+    },
+    {
+      "customer_id": "C5",
+      "product": "CREDIT",
+      "status": "PENDING",
+      "qualifying_source_key": null,
+      "activation_at": null
+    },
+    {
+      "customer_id": "C5",
+      "product": "PERSONAL",
+      "status": "PENDING",
+      "qualifying_source_key": null,
+      "activation_at": null
+    },
+    {
+      "customer_id": "C5",
+      "product": "MORTGAGE",
+      "status": "PENDING",
+      "qualifying_source_key": null,
+      "activation_at": null
+    },
+    {
+      "customer_id": "C8",
+      "product": "SAVINGS",
+      "status": "NO_QUALIFYING_EVENT",
+      "qualifying_source_key": null,
+      "activation_at": null
+    },
+    {
+      "customer_id": "C8",
+      "product": "DEBIT",
+      "status": "NO_QUALIFYING_EVENT",
+      "qualifying_source_key": null,
+      "activation_at": null
+    },
+    {
+      "customer_id": "C8",
+      "product": "CREDIT",
+      "status": "NO_QUALIFYING_EVENT",
+      "qualifying_source_key": null,
+      "activation_at": null
+    },
+    {
+      "customer_id": "C8",
+      "product": "PERSONAL",
+      "status": "NO_QUALIFYING_EVENT",
+      "qualifying_source_key": null,
+      "activation_at": null
+    },
+    {
+      "customer_id": "C8",
+      "product": "MORTGAGE",
+      "status": "NO_QUALIFYING_EVENT",
+      "qualifying_source_key": null,
+      "activation_at": null
+    }
+  ],
+  "march_campaign_and_channel_metrics": [
+    {
+      "method": "CALENDAR",
+      "campaign_id": "G",
+      "channel": "GOOGLE_ADS",
+      "registrations": 1,
+      "spend_cents": 900,
+      "revenue_90_cents": 32800,
+      "cac_cents": {
+        "numerator": 900,
+        "denominator": 1
+      },
+      "roas_90": {
+        "numerator": 32800,
+        "denominator": 900
+      }
+    },
+    {
+      "method": "CALENDAR",
+      "campaign_id": "M",
+      "channel": "META_ADS",
+      "registrations": 1,
+      "spend_cents": 3000,
+      "revenue_90_cents": 0,
+      "cac_cents": {
+        "numerator": 3000,
+        "denominator": 1
+      },
+      "roas_90": {
+        "numerator": 0,
+        "denominator": 3000
+      }
+    },
+    {
+      "method": "CALENDAR",
+      "campaign_id": "F",
+      "channel": "PAID_AFFILIATES",
+      "registrations": 1,
+      "spend_cents": 2000,
+      "revenue_90_cents": 0,
+      "cac_cents": {
+        "numerator": 2000,
+        "denominator": 1
+      },
+      "roas_90": {
+        "numerator": 0,
+        "denominator": 2000
+      }
+    },
+    {
+      "method": "TOUCH_WEIGHT",
+      "campaign_id": "G",
+      "channel": "GOOGLE_ADS",
+      "registrations": 1,
+      "spend_cents": 5100,
+      "revenue_90_cents": 32800,
+      "cac_cents": {
+        "numerator": 5100,
+        "denominator": 1
+      },
+      "roas_90": {
+        "numerator": 32800,
+        "denominator": 5100
+      }
+    },
+    {
+      "method": "TOUCH_WEIGHT",
+      "campaign_id": "M",
+      "channel": "META_ADS",
+      "registrations": 1,
+      "spend_cents": 3000,
+      "revenue_90_cents": 0,
+      "cac_cents": {
+        "numerator": 3000,
+        "denominator": 1
+      },
+      "roas_90": {
+        "numerator": 0,
+        "denominator": 3000
+      }
+    },
+    {
+      "method": "TOUCH_WEIGHT",
+      "campaign_id": "F",
+      "channel": "PAID_AFFILIATES",
+      "registrations": 1,
+      "spend_cents": 2000,
+      "revenue_90_cents": 0,
+      "cac_cents": {
+        "numerator": 2000,
+        "denominator": 1
+      },
+      "roas_90": {
+        "numerator": 0,
+        "denominator": 2000
+      }
+    }
+  ],
+  "campaign_day_metrics": [
+    {
+      "campaign_id": "G",
+      "date": "2025-02-26",
+      "spend_cents": 4200,
+      "registrations": 0,
+      "cac_cents": null
+    },
+    {
+      "campaign_id": "G",
+      "date": "2025-03-01",
+      "spend_cents": null,
+      "registrations": 1,
+      "cac_cents": {
+        "numerator": null,
+        "denominator": 1
+      }
+    },
+    {
+      "campaign_id": "G",
+      "date": "2025-03-02",
+      "spend_cents": 900,
+      "registrations": 0,
+      "cac_cents": null
+    },
+    {
+      "campaign_id": "M",
+      "date": "2025-03-01",
+      "spend_cents": 3000,
+      "registrations": 0,
+      "cac_cents": null
+    },
+    {
+      "campaign_id": "M",
+      "date": "2025-03-02",
+      "spend_cents": null,
+      "registrations": 1,
+      "cac_cents": {
+        "numerator": null,
+        "denominator": 1
+      }
+    },
+    {
+      "campaign_id": "F",
+      "date": "2025-03-02",
+      "spend_cents": 2000,
+      "registrations": 0,
+      "cac_cents": null
+    },
+    {
+      "campaign_id": "F",
+      "date": "2025-03-03",
+      "spend_cents": null,
+      "registrations": 1,
+      "cac_cents": {
+        "numerator": null,
+        "denominator": 1
+      }
+    },
+    {
+      "campaign_id": "M",
+      "date": "2026-06-28",
+      "spend_cents": null,
+      "registrations": 1,
+      "cac_cents": {
+        "numerator": null,
+        "denominator": 1
+      }
+    }
+  ],
+  "metric_gaps": [
+    {
+      "group": "UNKNOWN",
+      "months": [
+        "2025-03"
+      ],
+      "reason": "No paid spend is assigned",
+      "cac": null,
+      "roas": null
+    },
+    {
+      "group": "M",
+      "months": [
+        "2026-06"
+      ],
+      "reason": "Missing spend and pending customer maturity",
+      "cac": null,
+      "roas": null
+    },
+    {
+      "group": "G CALENDAR",
+      "months": [
+        "2025-02"
+      ],
+      "reason": "Spend-only; CAC undefined and spend-only ROAS display requires approval",
+      "cac": null,
+      "roas": "UNRESOLVED_DISPLAY"
+    },
+    {
+      "group": "CAMPAIGN_DAY",
+      "reason": "Daily mart has no ROAS field; compare campaign cohort ROAS where identifiable",
+      "roas": null
+    }
+  ],
+  "forecasts": [
+    {
+      "customer_id": "C1",
+      "feature_id": "I1",
+      "channel": "GOOGLE_ADS",
+      "intent": "EVERYDAY",
+      "scenario": "BASELINE",
+      "fixture_version": "A_v0.3_BASELINE",
+      "multiplier_percent": 100,
+      "age_days": 30,
+      "expected_cents": 226
+    },
+    {
+      "customer_id": "C1",
+      "feature_id": "I1",
+      "channel": "GOOGLE_ADS",
+      "intent": "EVERYDAY",
+      "scenario": "EQUAL_CHANNEL",
+      "fixture_version": "A_v0.3_EQUAL_CHANNEL",
+      "multiplier_percent": 100,
+      "age_days": 30,
+      "expected_cents": 226
+    },
+    {
+      "customer_id": "C1",
+      "feature_id": "I1",
+      "channel": "GOOGLE_ADS",
+      "intent": "EVERYDAY",
+      "scenario": "BASELINE",
+      "fixture_version": "A_v0.3_BASELINE",
+      "multiplier_percent": 100,
+      "age_days": 90,
+      "expected_cents": 962
+    },
+    {
+      "customer_id": "C1",
+      "feature_id": "I1",
+      "channel": "GOOGLE_ADS",
+      "intent": "EVERYDAY",
+      "scenario": "EQUAL_CHANNEL",
+      "fixture_version": "A_v0.3_EQUAL_CHANNEL",
+      "multiplier_percent": 100,
+      "age_days": 90,
+      "expected_cents": 962
+    },
+    {
+      "customer_id": "C1",
+      "feature_id": "I1",
+      "channel": "GOOGLE_ADS",
+      "intent": "EVERYDAY",
+      "scenario": "BASELINE",
+      "fixture_version": "A_v0.3_BASELINE",
+      "multiplier_percent": 100,
+      "age_days": 180,
+      "expected_cents": 2269
+    },
+    {
+      "customer_id": "C1",
+      "feature_id": "I1",
+      "channel": "GOOGLE_ADS",
+      "intent": "EVERYDAY",
+      "scenario": "EQUAL_CHANNEL",
+      "fixture_version": "A_v0.3_EQUAL_CHANNEL",
+      "multiplier_percent": 100,
+      "age_days": 180,
+      "expected_cents": 2269
+    },
+    {
+      "customer_id": "C1",
+      "feature_id": "I1",
+      "channel": "GOOGLE_ADS",
+      "intent": "EVERYDAY",
+      "scenario": "BASELINE",
+      "fixture_version": "A_v0.3_BASELINE",
+      "multiplier_percent": 100,
+      "age_days": 365,
+      "expected_cents": 5130
+    },
+    {
+      "customer_id": "C1",
+      "feature_id": "I1",
+      "channel": "GOOGLE_ADS",
+      "intent": "EVERYDAY",
+      "scenario": "EQUAL_CHANNEL",
+      "fixture_version": "A_v0.3_EQUAL_CHANNEL",
+      "multiplier_percent": 100,
+      "age_days": 365,
+      "expected_cents": 5130
+    },
+    {
+      "customer_id": "C2",
+      "feature_id": "I2",
+      "channel": "META_ADS",
+      "intent": "EVERYDAY",
+      "scenario": "BASELINE",
+      "fixture_version": "A_v0.3_BASELINE",
+      "multiplier_percent": 95,
+      "age_days": 30,
+      "expected_cents": 215
+    },
+    {
+      "customer_id": "C2",
+      "feature_id": "I2",
+      "channel": "META_ADS",
+      "intent": "EVERYDAY",
+      "scenario": "EQUAL_CHANNEL",
+      "fixture_version": "A_v0.3_EQUAL_CHANNEL",
+      "multiplier_percent": 100,
+      "age_days": 30,
+      "expected_cents": 226
+    },
+    {
+      "customer_id": "C2",
+      "feature_id": "I2",
+      "channel": "META_ADS",
+      "intent": "EVERYDAY",
+      "scenario": "BASELINE",
+      "fixture_version": "A_v0.3_BASELINE",
+      "multiplier_percent": 95,
+      "age_days": 90,
+      "expected_cents": 914
+    },
+    {
+      "customer_id": "C2",
+      "feature_id": "I2",
+      "channel": "META_ADS",
+      "intent": "EVERYDAY",
+      "scenario": "EQUAL_CHANNEL",
+      "fixture_version": "A_v0.3_EQUAL_CHANNEL",
+      "multiplier_percent": 100,
+      "age_days": 90,
+      "expected_cents": 962
+    },
+    {
+      "customer_id": "C2",
+      "feature_id": "I2",
+      "channel": "META_ADS",
+      "intent": "EVERYDAY",
+      "scenario": "BASELINE",
+      "fixture_version": "A_v0.3_BASELINE",
+      "multiplier_percent": 95,
+      "age_days": 180,
+      "expected_cents": 2155
+    },
+    {
+      "customer_id": "C2",
+      "feature_id": "I2",
+      "channel": "META_ADS",
+      "intent": "EVERYDAY",
+      "scenario": "EQUAL_CHANNEL",
+      "fixture_version": "A_v0.3_EQUAL_CHANNEL",
+      "multiplier_percent": 100,
+      "age_days": 180,
+      "expected_cents": 2269
+    },
+    {
+      "customer_id": "C2",
+      "feature_id": "I2",
+      "channel": "META_ADS",
+      "intent": "EVERYDAY",
+      "scenario": "BASELINE",
+      "fixture_version": "A_v0.3_BASELINE",
+      "multiplier_percent": 95,
+      "age_days": 365,
+      "expected_cents": 4874
+    },
+    {
+      "customer_id": "C2",
+      "feature_id": "I2",
+      "channel": "META_ADS",
+      "intent": "EVERYDAY",
+      "scenario": "EQUAL_CHANNEL",
+      "fixture_version": "A_v0.3_EQUAL_CHANNEL",
+      "multiplier_percent": 100,
+      "age_days": 365,
+      "expected_cents": 5130
+    },
+    {
+      "customer_id": "C3",
+      "feature_id": "I3",
+      "channel": "PAID_AFFILIATES",
+      "intent": "EVERYDAY",
+      "scenario": "BASELINE",
+      "fixture_version": "A_v0.3_BASELINE",
+      "multiplier_percent": 90,
+      "age_days": 30,
+      "expected_cents": 203
+    },
+    {
+      "customer_id": "C3",
+      "feature_id": "I3",
+      "channel": "PAID_AFFILIATES",
+      "intent": "EVERYDAY",
+      "scenario": "EQUAL_CHANNEL",
+      "fixture_version": "A_v0.3_EQUAL_CHANNEL",
+      "multiplier_percent": 100,
+      "age_days": 30,
+      "expected_cents": 226
+    },
+    {
+      "customer_id": "C3",
+      "feature_id": "I3",
+      "channel": "PAID_AFFILIATES",
+      "intent": "EVERYDAY",
+      "scenario": "BASELINE",
+      "fixture_version": "A_v0.3_BASELINE",
+      "multiplier_percent": 90,
+      "age_days": 90,
+      "expected_cents": 866
+    },
+    {
+      "customer_id": "C3",
+      "feature_id": "I3",
+      "channel": "PAID_AFFILIATES",
+      "intent": "EVERYDAY",
+      "scenario": "EQUAL_CHANNEL",
+      "fixture_version": "A_v0.3_EQUAL_CHANNEL",
+      "multiplier_percent": 100,
+      "age_days": 90,
+      "expected_cents": 962
+    },
+    {
+      "customer_id": "C3",
+      "feature_id": "I3",
+      "channel": "PAID_AFFILIATES",
+      "intent": "EVERYDAY",
+      "scenario": "BASELINE",
+      "fixture_version": "A_v0.3_BASELINE",
+      "multiplier_percent": 90,
+      "age_days": 180,
+      "expected_cents": 2042
+    },
+    {
+      "customer_id": "C3",
+      "feature_id": "I3",
+      "channel": "PAID_AFFILIATES",
+      "intent": "EVERYDAY",
+      "scenario": "EQUAL_CHANNEL",
+      "fixture_version": "A_v0.3_EQUAL_CHANNEL",
+      "multiplier_percent": 100,
+      "age_days": 180,
+      "expected_cents": 2269
+    },
+    {
+      "customer_id": "C3",
+      "feature_id": "I3",
+      "channel": "PAID_AFFILIATES",
+      "intent": "EVERYDAY",
+      "scenario": "BASELINE",
+      "fixture_version": "A_v0.3_BASELINE",
+      "multiplier_percent": 90,
+      "age_days": 365,
+      "expected_cents": 4617
+    },
+    {
+      "customer_id": "C3",
+      "feature_id": "I3",
+      "channel": "PAID_AFFILIATES",
+      "intent": "EVERYDAY",
+      "scenario": "EQUAL_CHANNEL",
+      "fixture_version": "A_v0.3_EQUAL_CHANNEL",
+      "multiplier_percent": 100,
+      "age_days": 365,
+      "expected_cents": 5130
+    },
+    {
+      "customer_id": "C4",
+      "feature_id": null,
+      "channel": "UNKNOWN",
+      "intent": "UNKNOWN",
+      "scenario": "BASELINE",
+      "fixture_version": "A_v0.3_BASELINE",
+      "multiplier_percent": 100,
+      "age_days": 30,
+      "expected_cents": 176
+    },
+    {
+      "customer_id": "C4",
+      "feature_id": null,
+      "channel": "UNKNOWN",
+      "intent": "UNKNOWN",
+      "scenario": "EQUAL_CHANNEL",
+      "fixture_version": "A_v0.3_EQUAL_CHANNEL",
+      "multiplier_percent": 100,
+      "age_days": 30,
+      "expected_cents": 176
+    },
+    {
+      "customer_id": "C4",
+      "feature_id": null,
+      "channel": "UNKNOWN",
+      "intent": "UNKNOWN",
+      "scenario": "BASELINE",
+      "fixture_version": "A_v0.3_BASELINE",
+      "multiplier_percent": 100,
+      "age_days": 90,
+      "expected_cents": 827
+    },
+    {
+      "customer_id": "C4",
+      "feature_id": null,
+      "channel": "UNKNOWN",
+      "intent": "UNKNOWN",
+      "scenario": "EQUAL_CHANNEL",
+      "fixture_version": "A_v0.3_EQUAL_CHANNEL",
+      "multiplier_percent": 100,
+      "age_days": 90,
+      "expected_cents": 827
+    },
+    {
+      "customer_id": "C4",
+      "feature_id": null,
+      "channel": "UNKNOWN",
+      "intent": "UNKNOWN",
+      "scenario": "BASELINE",
+      "fixture_version": "A_v0.3_BASELINE",
+      "multiplier_percent": 100,
+      "age_days": 180,
+      "expected_cents": 2085
+    },
+    {
+      "customer_id": "C4",
+      "feature_id": null,
+      "channel": "UNKNOWN",
+      "intent": "UNKNOWN",
+      "scenario": "EQUAL_CHANNEL",
+      "fixture_version": "A_v0.3_EQUAL_CHANNEL",
+      "multiplier_percent": 100,
+      "age_days": 180,
+      "expected_cents": 2085
+    },
+    {
+      "customer_id": "C4",
+      "feature_id": null,
+      "channel": "UNKNOWN",
+      "intent": "UNKNOWN",
+      "scenario": "BASELINE",
+      "fixture_version": "A_v0.3_BASELINE",
+      "multiplier_percent": 100,
+      "age_days": 365,
+      "expected_cents": 4920
+    },
+    {
+      "customer_id": "C4",
+      "feature_id": null,
+      "channel": "UNKNOWN",
+      "intent": "UNKNOWN",
+      "scenario": "EQUAL_CHANNEL",
+      "fixture_version": "A_v0.3_EQUAL_CHANNEL",
+      "multiplier_percent": 100,
+      "age_days": 365,
+      "expected_cents": 4920
+    },
+    {
+      "customer_id": "C5",
+      "feature_id": null,
+      "channel": "META_ADS",
+      "intent": "UNKNOWN",
+      "scenario": "BASELINE",
+      "fixture_version": "A_v0.3_BASELINE",
+      "multiplier_percent": 95,
+      "age_days": 30,
+      "expected_cents": 168
+    },
+    {
+      "customer_id": "C5",
+      "feature_id": null,
+      "channel": "META_ADS",
+      "intent": "UNKNOWN",
+      "scenario": "EQUAL_CHANNEL",
+      "fixture_version": "A_v0.3_EQUAL_CHANNEL",
+      "multiplier_percent": 100,
+      "age_days": 30,
+      "expected_cents": 176
+    },
+    {
+      "customer_id": "C5",
+      "feature_id": null,
+      "channel": "META_ADS",
+      "intent": "UNKNOWN",
+      "scenario": "BASELINE",
+      "fixture_version": "A_v0.3_BASELINE",
+      "multiplier_percent": 95,
+      "age_days": 90,
+      "expected_cents": 785
+    },
+    {
+      "customer_id": "C5",
+      "feature_id": null,
+      "channel": "META_ADS",
+      "intent": "UNKNOWN",
+      "scenario": "EQUAL_CHANNEL",
+      "fixture_version": "A_v0.3_EQUAL_CHANNEL",
+      "multiplier_percent": 100,
+      "age_days": 90,
+      "expected_cents": 827
+    },
+    {
+      "customer_id": "C5",
+      "feature_id": null,
+      "channel": "META_ADS",
+      "intent": "UNKNOWN",
+      "scenario": "BASELINE",
+      "fixture_version": "A_v0.3_BASELINE",
+      "multiplier_percent": 95,
+      "age_days": 180,
+      "expected_cents": 1981
+    },
+    {
+      "customer_id": "C5",
+      "feature_id": null,
+      "channel": "META_ADS",
+      "intent": "UNKNOWN",
+      "scenario": "EQUAL_CHANNEL",
+      "fixture_version": "A_v0.3_EQUAL_CHANNEL",
+      "multiplier_percent": 100,
+      "age_days": 180,
+      "expected_cents": 2085
+    },
+    {
+      "customer_id": "C5",
+      "feature_id": null,
+      "channel": "META_ADS",
+      "intent": "UNKNOWN",
+      "scenario": "BASELINE",
+      "fixture_version": "A_v0.3_BASELINE",
+      "multiplier_percent": 95,
+      "age_days": 365,
+      "expected_cents": 4674
+    },
+    {
+      "customer_id": "C5",
+      "feature_id": null,
+      "channel": "META_ADS",
+      "intent": "UNKNOWN",
+      "scenario": "EQUAL_CHANNEL",
+      "fixture_version": "A_v0.3_EQUAL_CHANNEL",
+      "multiplier_percent": 100,
+      "age_days": 365,
+      "expected_cents": 4920
+    },
+    {
+      "customer_id": "C8",
+      "feature_id": null,
+      "channel": "UNKNOWN",
+      "intent": "UNKNOWN",
+      "scenario": "BASELINE",
+      "fixture_version": "A_v0.3_BASELINE",
+      "multiplier_percent": 100,
+      "age_days": 30,
+      "expected_cents": 176
+    },
+    {
+      "customer_id": "C8",
+      "feature_id": null,
+      "channel": "UNKNOWN",
+      "intent": "UNKNOWN",
+      "scenario": "EQUAL_CHANNEL",
+      "fixture_version": "A_v0.3_EQUAL_CHANNEL",
+      "multiplier_percent": 100,
+      "age_days": 30,
+      "expected_cents": 176
+    },
+    {
+      "customer_id": "C8",
+      "feature_id": null,
+      "channel": "UNKNOWN",
+      "intent": "UNKNOWN",
+      "scenario": "BASELINE",
+      "fixture_version": "A_v0.3_BASELINE",
+      "multiplier_percent": 100,
+      "age_days": 90,
+      "expected_cents": 827
+    },
+    {
+      "customer_id": "C8",
+      "feature_id": null,
+      "channel": "UNKNOWN",
+      "intent": "UNKNOWN",
+      "scenario": "EQUAL_CHANNEL",
+      "fixture_version": "A_v0.3_EQUAL_CHANNEL",
+      "multiplier_percent": 100,
+      "age_days": 90,
+      "expected_cents": 827
+    },
+    {
+      "customer_id": "C8",
+      "feature_id": null,
+      "channel": "UNKNOWN",
+      "intent": "UNKNOWN",
+      "scenario": "BASELINE",
+      "fixture_version": "A_v0.3_BASELINE",
+      "multiplier_percent": 100,
+      "age_days": 180,
+      "expected_cents": 2085
+    },
+    {
+      "customer_id": "C8",
+      "feature_id": null,
+      "channel": "UNKNOWN",
+      "intent": "UNKNOWN",
+      "scenario": "EQUAL_CHANNEL",
+      "fixture_version": "A_v0.3_EQUAL_CHANNEL",
+      "multiplier_percent": 100,
+      "age_days": 180,
+      "expected_cents": 2085
+    },
+    {
+      "customer_id": "C8",
+      "feature_id": null,
+      "channel": "UNKNOWN",
+      "intent": "UNKNOWN",
+      "scenario": "BASELINE",
+      "fixture_version": "A_v0.3_BASELINE",
+      "multiplier_percent": 100,
+      "age_days": 365,
+      "expected_cents": 4920
+    },
+    {
+      "customer_id": "C8",
+      "feature_id": null,
+      "channel": "UNKNOWN",
+      "intent": "UNKNOWN",
+      "scenario": "EQUAL_CHANNEL",
+      "fixture_version": "A_v0.3_EQUAL_CHANNEL",
+      "multiplier_percent": 100,
+      "age_days": 365,
+      "expected_cents": 4920
+    }
+  ],
+  "activation_summary": [
+    {
+      "group": "2025-03_ALL",
+      "activated": 1,
+      "mature": 5
+    },
+    {
+      "group": "2025-03_GOOGLE_ADS",
+      "activated": 1,
+      "mature": 1
+    },
+    {
+      "group": "2025-03_META_ADS",
+      "activated": 0,
+      "mature": 1
+    },
+    {
+      "group": "2025-03_PAID_AFFILIATES",
+      "activated": 0,
+      "mature": 1
+    },
+    {
+      "group": "2025-03_UNKNOWN",
+      "activated": 0,
+      "mature": 2
+    },
+    {
+      "group": "2026-06_ALL",
+      "activated": 0,
+      "mature": 0
+    }
+  ],
+  "cohort_realized": [
+    {
+      "snapshot": "PRIMARY",
+      "signup_month": "2025-03-01",
+      "channel": "GOOGLE_ADS",
+      "age_days": 30,
+      "cohort_status": "MATURE",
+      "registrations": 1,
+      "mature_customers": 1,
+      "revenue_cents": 32770,
+      "cost_cents": 21095,
+      "contribution_cents": 11675
+    },
+    {
+      "snapshot": "PRIMARY",
+      "signup_month": "2025-03-01",
+      "channel": "GOOGLE_ADS",
+      "age_days": 90,
+      "cohort_status": "MATURE",
+      "registrations": 1,
+      "mature_customers": 1,
+      "revenue_cents": 32800,
+      "cost_cents": 21295,
+      "contribution_cents": 11505
+    },
+    {
+      "snapshot": "PRIMARY",
+      "signup_month": "2025-03-01",
+      "channel": "GOOGLE_ADS",
+      "age_days": 180,
+      "cohort_status": "MATURE",
+      "registrations": 1,
+      "mature_customers": 1,
+      "revenue_cents": 32890,
+      "cost_cents": 21295,
+      "contribution_cents": 11595
+    },
+    {
+      "snapshot": "PRIMARY",
+      "signup_month": "2025-03-01",
+      "channel": "GOOGLE_ADS",
+      "age_days": 365,
+      "cohort_status": "MATURE",
+      "registrations": 1,
+      "mature_customers": 1,
+      "revenue_cents": 33070,
+      "cost_cents": 21295,
+      "contribution_cents": 11775
+    },
+    {
+      "snapshot": "PRIMARY",
+      "signup_month": "2025-03-01",
+      "channel": "META_ADS",
+      "age_days": 30,
+      "cohort_status": "MATURE",
+      "registrations": 1,
+      "mature_customers": 1,
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "PRIMARY",
+      "signup_month": "2025-03-01",
+      "channel": "META_ADS",
+      "age_days": 90,
+      "cohort_status": "MATURE",
+      "registrations": 1,
+      "mature_customers": 1,
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "PRIMARY",
+      "signup_month": "2025-03-01",
+      "channel": "META_ADS",
+      "age_days": 180,
+      "cohort_status": "MATURE",
+      "registrations": 1,
+      "mature_customers": 1,
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "PRIMARY",
+      "signup_month": "2025-03-01",
+      "channel": "META_ADS",
+      "age_days": 365,
+      "cohort_status": "MATURE",
+      "registrations": 1,
+      "mature_customers": 1,
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "PRIMARY",
+      "signup_month": "2025-03-01",
+      "channel": "PAID_AFFILIATES",
+      "age_days": 30,
+      "cohort_status": "MATURE",
+      "registrations": 1,
+      "mature_customers": 1,
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "PRIMARY",
+      "signup_month": "2025-03-01",
+      "channel": "PAID_AFFILIATES",
+      "age_days": 90,
+      "cohort_status": "MATURE",
+      "registrations": 1,
+      "mature_customers": 1,
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "PRIMARY",
+      "signup_month": "2025-03-01",
+      "channel": "PAID_AFFILIATES",
+      "age_days": 180,
+      "cohort_status": "MATURE",
+      "registrations": 1,
+      "mature_customers": 1,
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "PRIMARY",
+      "signup_month": "2025-03-01",
+      "channel": "PAID_AFFILIATES",
+      "age_days": 365,
+      "cohort_status": "MATURE",
+      "registrations": 1,
+      "mature_customers": 1,
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "PRIMARY",
+      "signup_month": "2025-03-01",
+      "channel": "UNKNOWN",
+      "age_days": 30,
+      "cohort_status": "MATURE",
+      "registrations": 2,
+      "mature_customers": 2,
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "PRIMARY",
+      "signup_month": "2025-03-01",
+      "channel": "UNKNOWN",
+      "age_days": 90,
+      "cohort_status": "MATURE",
+      "registrations": 2,
+      "mature_customers": 2,
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "PRIMARY",
+      "signup_month": "2025-03-01",
+      "channel": "UNKNOWN",
+      "age_days": 180,
+      "cohort_status": "MATURE",
+      "registrations": 2,
+      "mature_customers": 2,
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "PRIMARY",
+      "signup_month": "2025-03-01",
+      "channel": "UNKNOWN",
+      "age_days": 365,
+      "cohort_status": "MATURE",
+      "registrations": 2,
+      "mature_customers": 2,
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "PRIMARY",
+      "signup_month": "2026-06-01",
+      "channel": "META_ADS",
+      "age_days": 30,
+      "cohort_status": "PENDING",
+      "registrations": 1,
+      "mature_customers": 0,
+      "revenue_cents": null,
+      "cost_cents": null,
+      "contribution_cents": null
+    },
+    {
+      "snapshot": "PRIMARY",
+      "signup_month": "2026-06-01",
+      "channel": "META_ADS",
+      "age_days": 90,
+      "cohort_status": "PENDING",
+      "registrations": 1,
+      "mature_customers": 0,
+      "revenue_cents": null,
+      "cost_cents": null,
+      "contribution_cents": null
+    },
+    {
+      "snapshot": "PRIMARY",
+      "signup_month": "2026-06-01",
+      "channel": "META_ADS",
+      "age_days": 180,
+      "cohort_status": "PENDING",
+      "registrations": 1,
+      "mature_customers": 0,
+      "revenue_cents": null,
+      "cost_cents": null,
+      "contribution_cents": null
+    },
+    {
+      "snapshot": "PRIMARY",
+      "signup_month": "2026-06-01",
+      "channel": "META_ADS",
+      "age_days": 365,
+      "cohort_status": "PENDING",
+      "registrations": 1,
+      "mature_customers": 0,
+      "revenue_cents": null,
+      "cost_cents": null,
+      "contribution_cents": null
+    },
+    {
+      "snapshot": "REPLAY",
+      "signup_month": "2025-03-01",
+      "channel": "GOOGLE_ADS",
+      "age_days": 30,
+      "cohort_status": "MATURE",
+      "registrations": 1,
+      "mature_customers": 1,
+      "revenue_cents": 32895,
+      "cost_cents": 21095,
+      "contribution_cents": 11800
+    },
+    {
+      "snapshot": "REPLAY",
+      "signup_month": "2025-03-01",
+      "channel": "GOOGLE_ADS",
+      "age_days": 90,
+      "cohort_status": "MATURE",
+      "registrations": 1,
+      "mature_customers": 1,
+      "revenue_cents": 32925,
+      "cost_cents": 21295,
+      "contribution_cents": 11630
+    },
+    {
+      "snapshot": "REPLAY",
+      "signup_month": "2025-03-01",
+      "channel": "GOOGLE_ADS",
+      "age_days": 180,
+      "cohort_status": "MATURE",
+      "registrations": 1,
+      "mature_customers": 1,
+      "revenue_cents": 33015,
+      "cost_cents": 21295,
+      "contribution_cents": 11720
+    },
+    {
+      "snapshot": "REPLAY",
+      "signup_month": "2025-03-01",
+      "channel": "GOOGLE_ADS",
+      "age_days": 365,
+      "cohort_status": "MATURE",
+      "registrations": 1,
+      "mature_customers": 1,
+      "revenue_cents": 33195,
+      "cost_cents": 21295,
+      "contribution_cents": 11900
+    },
+    {
+      "snapshot": "REPLAY",
+      "signup_month": "2025-03-01",
+      "channel": "META_ADS",
+      "age_days": 30,
+      "cohort_status": "MATURE",
+      "registrations": 1,
+      "mature_customers": 1,
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "REPLAY",
+      "signup_month": "2025-03-01",
+      "channel": "META_ADS",
+      "age_days": 90,
+      "cohort_status": "MATURE",
+      "registrations": 1,
+      "mature_customers": 1,
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "REPLAY",
+      "signup_month": "2025-03-01",
+      "channel": "META_ADS",
+      "age_days": 180,
+      "cohort_status": "MATURE",
+      "registrations": 1,
+      "mature_customers": 1,
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "REPLAY",
+      "signup_month": "2025-03-01",
+      "channel": "META_ADS",
+      "age_days": 365,
+      "cohort_status": "MATURE",
+      "registrations": 1,
+      "mature_customers": 1,
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "REPLAY",
+      "signup_month": "2025-03-01",
+      "channel": "PAID_AFFILIATES",
+      "age_days": 30,
+      "cohort_status": "MATURE",
+      "registrations": 1,
+      "mature_customers": 1,
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "REPLAY",
+      "signup_month": "2025-03-01",
+      "channel": "PAID_AFFILIATES",
+      "age_days": 90,
+      "cohort_status": "MATURE",
+      "registrations": 1,
+      "mature_customers": 1,
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "REPLAY",
+      "signup_month": "2025-03-01",
+      "channel": "PAID_AFFILIATES",
+      "age_days": 180,
+      "cohort_status": "MATURE",
+      "registrations": 1,
+      "mature_customers": 1,
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "REPLAY",
+      "signup_month": "2025-03-01",
+      "channel": "PAID_AFFILIATES",
+      "age_days": 365,
+      "cohort_status": "MATURE",
+      "registrations": 1,
+      "mature_customers": 1,
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "REPLAY",
+      "signup_month": "2025-03-01",
+      "channel": "UNKNOWN",
+      "age_days": 30,
+      "cohort_status": "MATURE",
+      "registrations": 2,
+      "mature_customers": 2,
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "REPLAY",
+      "signup_month": "2025-03-01",
+      "channel": "UNKNOWN",
+      "age_days": 90,
+      "cohort_status": "MATURE",
+      "registrations": 2,
+      "mature_customers": 2,
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "REPLAY",
+      "signup_month": "2025-03-01",
+      "channel": "UNKNOWN",
+      "age_days": 180,
+      "cohort_status": "MATURE",
+      "registrations": 2,
+      "mature_customers": 2,
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "REPLAY",
+      "signup_month": "2025-03-01",
+      "channel": "UNKNOWN",
+      "age_days": 365,
+      "cohort_status": "MATURE",
+      "registrations": 2,
+      "mature_customers": 2,
+      "revenue_cents": 0,
+      "cost_cents": 0,
+      "contribution_cents": 0
+    },
+    {
+      "snapshot": "REPLAY",
+      "signup_month": "2026-06-01",
+      "channel": "META_ADS",
+      "age_days": 30,
+      "cohort_status": "PENDING",
+      "registrations": 1,
+      "mature_customers": 0,
+      "revenue_cents": null,
+      "cost_cents": null,
+      "contribution_cents": null
+    },
+    {
+      "snapshot": "REPLAY",
+      "signup_month": "2026-06-01",
+      "channel": "META_ADS",
+      "age_days": 90,
+      "cohort_status": "PENDING",
+      "registrations": 1,
+      "mature_customers": 0,
+      "revenue_cents": null,
+      "cost_cents": null,
+      "contribution_cents": null
+    },
+    {
+      "snapshot": "REPLAY",
+      "signup_month": "2026-06-01",
+      "channel": "META_ADS",
+      "age_days": 180,
+      "cohort_status": "PENDING",
+      "registrations": 1,
+      "mature_customers": 0,
+      "revenue_cents": null,
+      "cost_cents": null,
+      "contribution_cents": null
+    },
+    {
+      "snapshot": "REPLAY",
+      "signup_month": "2026-06-01",
+      "channel": "META_ADS",
+      "age_days": 365,
+      "cohort_status": "PENDING",
+      "registrations": 1,
+      "mature_customers": 0,
+      "revenue_cents": null,
+      "cost_cents": null,
+      "contribution_cents": null
+    }
+  ]
+}

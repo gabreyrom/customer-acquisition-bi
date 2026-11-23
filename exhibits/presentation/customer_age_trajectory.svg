@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="650" height="340" viewBox="0 0 650 340" role="img" aria-label="Synthetic C02703 expected and realized contribution at four customer ages">
+<rect width="650" height="340" rx="12" fill="#fff"/>
+<g font-family="Arial,sans-serif" fill="#153745"><text x="24" y="32" font-size="22" font-weight="bold">C02703 · Contribution by customer age</text><text x="24" y="54" font-size="14">USD · Synthetic customer · Each point is a mature checkpoint</text>
+<line x1="88" x2="612" y1="267.0" y2="267.0" stroke="#d9e4e9"/><text x="82" y="271.0" text-anchor="end" font-size="12">$0</text>
+<line x1="88" x2="612" y1="205.33333333333334" y2="205.33333333333334" stroke="#d9e4e9"/><text x="82" y="209.33333333333334" text-anchor="end" font-size="12">$1,000</text>
+<line x1="88" x2="612" y1="143.66666666666669" y2="143.66666666666669" stroke="#d9e4e9"/><text x="82" y="147.66666666666669" text-anchor="end" font-size="12">$2,000</text>
+<line x1="88" x2="612" y1="82.0" y2="82.0" stroke="#d9e4e9"/><text x="82" y="86.0" text-anchor="end" font-size="12">$3,000</text>
+<text x="115" y="290" text-anchor="middle" font-size="14">30 days</text>
+<text x="265" y="290" text-anchor="middle" font-size="14">90 days</text>
+<text x="415" y="290" text-anchor="middle" font-size="14">180 days</text>
+<text x="565" y="290" text-anchor="middle" font-size="14">365 days</text>
+<polyline points="115,266.07438333333334 265,247.16121666666666 415,196.04571666666666 565,96.10871666666668" fill="none" stroke="#075776" stroke-width="3"/>
+<circle cx="115" cy="266.07438333333334" r="4" fill="#075776"/>
+<circle cx="265" cy="247.16121666666666" r="4" fill="#075776"/>
+<circle cx="415" cy="196.04571666666666" r="4" fill="#075776"/>
+<circle cx="565" cy="96.10871666666668" r="4" fill="#075776"/>
+<line x1="90" x2="113" y1="317" y2="317" stroke="#075776" stroke-width="3"/><text x="119" y="321" font-size="14">Realized contribution</text>
+<polyline points="115,266.86063333333334 265,266.40676666666667 415,265.6007833333333 565,263.8365" fill="none" stroke="#a14b20" stroke-width="3"/>
+<circle cx="115" cy="266.86063333333334" r="4" fill="#a14b20"/>
+<circle cx="265" cy="266.40676666666667" r="4" fill="#a14b20"/>
+<circle cx="415" cy="265.6007833333333" r="4" fill="#a14b20"/>
+<circle cx="565" cy="263.8365" r="4" fill="#a14b20"/>
+<line x1="325" x2="348" y1="317" y2="317" stroke="#a14b20" stroke-width="3"/><text x="354" y="321" font-size="14">Fixed expected contribution</text>
+</g></svg>

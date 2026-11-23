@@ -1,0 +1,307 @@
+{
+  "run_id": "FULL_PRIMARY_V1",
+  "effective_cutoff": "2026-07-01T00:00:00Z",
+  "recorded_cutoff": "2026-07-01T00:00:00Z",
+  "source_manifest_sha256": "2ba8c42ebd46d92fa79e72bef18b223103a53ac797ee4fe1f543c795d9ba3701",
+  "source_row_counts": {
+    "campaign": 6,
+    "campaign_day": 3276,
+    "campaign_budget": 108,
+    "registration": 5002,
+    "identity_link": 9884,
+    "marketing_touch": 9326,
+    "registration_feature": 4291,
+    "product_account": 6383,
+    "product_activity_delivery": 850786
+  },
+  "source_files": {
+    "campaign.jsonl.gz": {
+      "rows": 6,
+      "sha256": "0b4d7a038c4cdd20a0a0769f517c37d1fd4af36c9e47ef1de4d6a643f89ee0e4"
+    },
+    "campaign_day.jsonl.gz": {
+      "rows": 3276,
+      "sha256": "0522f57533fe33b4b1d4d6fa2ceefe29adefd88712fad4b8e5087c9c74d65cd3"
+    },
+    "campaign_budget.jsonl.gz": {
+      "rows": 108,
+      "sha256": "ecf1ec8ff2226049a251867ce1decada002e1b49b0512fa4113917cba901ed88"
+    },
+    "registration.jsonl.gz": {
+      "rows": 5002,
+      "sha256": "8651df669c135d1dcfc44ba1d29638aa4ff8e941e64fafd12ea0a4253beacc4b"
+    },
+    "identity_link.jsonl.gz": {
+      "rows": 9884,
+      "sha256": "752e5e7b75dd5970b8839d4e00c241596f687ae35baefc223292d332f9662222"
+    },
+    "marketing_touch.jsonl.gz": {
+      "rows": 9326,
+      "sha256": "2f2b799f947d1023eb6d270314466fa217d781246708b3db91672173ed95ea7d"
+    },
+    "registration_feature.jsonl.gz": {
+      "rows": 4291,
+      "sha256": "adeaece1a29f12035cfeb37aab360160d0e5d7cfdac484d3138da01626372f07"
+    },
+    "product_account.jsonl.gz": {
+      "rows": 6383,
+      "sha256": "d6bfdbd379cd81dbb484b6c922b56335a82ebafc6488d4a647276780fe437d82"
+    },
+    "product_activity_delivery.jsonl.gz": {
+      "rows": 850786,
+      "sha256": "324f5c04af2c7a7a3d809c7b9a1cb5abbdd9c8136f65517b6b8dffc2704dfbce"
+    },
+    "expected_source_exceptions.json": {
+      "rows": 672,
+      "sha256": "8ad0cb8ad561b52c1cd52f35c6560d2a7ef3af6b1bc7d4bd19bae566746c508a"
+    }
+  },
+  "controlled_comparisons": 329,
+  "controlled_discrepancies": 0,
+  "specification_version": "1.0",
+  "build_version": "C-1.0.1",
+  "timezone": "UTC",
+  "duckdb_version": "2.0.1",
+  "threads": 4,
+  "output_row_counts": {
+    "acquisition": 5000,
+    "attribution": 5000,
+    "canonical_activity": 850741,
+    "financial_event": 827038,
+    "feature_snapshot": 5000,
+    "forecast_model": 2,
+    "prediction": 10000,
+    "prediction_age": 40000,
+    "activation": 25000,
+    "customer_age": 20000,
+    "spend_allocation": 6896,
+    "channel_cohort": 1152,
+    "campaign_performance_day": 3276,
+    "exception_log": 83
+  },
+  "financial_reconciliation": [
+    {
+      "product": "CREDIT",
+      "class": "COST",
+      "source_components": 78013,
+      "source_cents": 18050380,
+      "ledger_base_components": 78013,
+      "ledger_base_cents": 18050380,
+      "adjustments_cents": -1754460,
+      "ledger_net_cents": 16295920,
+      "component_difference": 0,
+      "difference_cents": 0
+    },
+    {
+      "product": "CREDIT",
+      "class": "REVENUE",
+      "source_components": 76604,
+      "source_cents": 6791282,
+      "ledger_base_components": 76604,
+      "ledger_base_cents": 6791282,
+      "adjustments_cents": 0,
+      "ledger_net_cents": 6791282,
+      "component_difference": 0,
+      "difference_cents": 0
+    },
+    {
+      "product": "DEBIT",
+      "class": "COST",
+      "source_components": 12710,
+      "source_cents": 858958,
+      "ledger_base_components": 12710,
+      "ledger_base_cents": 858958,
+      "adjustments_cents": -45928,
+      "ledger_net_cents": 813030,
+      "component_difference": 0,
+      "difference_cents": 0
+    },
+    {
+      "product": "DEBIT",
+      "class": "REVENUE",
+      "source_components": 6355,
+      "source_cents": 1001316,
+      "ledger_base_components": 6355,
+      "ledger_base_cents": 1001316,
+      "adjustments_cents": -84028,
+      "ledger_net_cents": 917288,
+      "component_difference": 0,
+      "difference_cents": 0
+    },
+    {
+      "product": "MORTGAGE",
+      "class": "COST",
+      "source_components": 42055,
+      "source_cents": 96121144,
+      "ledger_base_components": 42055,
+      "ledger_base_cents": 96121144,
+      "adjustments_cents": 0,
+      "ledger_net_cents": 96121144,
+      "component_difference": 0,
+      "difference_cents": 0
+    },
+    {
+      "product": "MORTGAGE",
+      "class": "REVENUE",
+      "source_components": 42055,
+      "source_cents": 185396970,
+      "ledger_base_components": 42055,
+      "ledger_base_cents": 185396970,
+      "adjustments_cents": -471390,
+      "ledger_net_cents": 184925580,
+      "component_difference": 0,
+      "difference_cents": 0
+    },
+    {
+      "product": "PERSONAL",
+      "class": "COST",
+      "source_components": 133339,
+      "source_cents": 8589240,
+      "ledger_base_components": 133339,
+      "ledger_base_cents": 8589240,
+      "adjustments_cents": 0,
+      "ledger_net_cents": 8589240,
+      "component_difference": 0,
+      "difference_cents": 0
+    },
+    {
+      "product": "PERSONAL",
+      "class": "REVENUE",
+      "source_components": 133339,
+      "source_cents": 19633122,
+      "ledger_base_components": 133339,
+      "ledger_base_cents": 19633122,
+      "adjustments_cents": -70290,
+      "ledger_net_cents": 19562832,
+      "component_difference": 0,
+      "difference_cents": 0
+    },
+    {
+      "product": "SAVINGS",
+      "class": "COST",
+      "source_components": 150950,
+      "source_cents": 2644038,
+      "ledger_base_components": 150950,
+      "ledger_base_cents": 2644038,
+      "adjustments_cents": 0,
+      "ledger_net_cents": 2644038,
+      "component_difference": 0,
+      "difference_cents": 0
+    },
+    {
+      "product": "SAVINGS",
+      "class": "REVENUE",
+      "source_components": 149312,
+      "source_cents": 4874031,
+      "ledger_base_components": 149312,
+      "ledger_base_cents": 4874031,
+      "adjustments_cents": 0,
+      "ledger_net_cents": 4874031,
+      "component_difference": 0,
+      "difference_cents": 0
+    }
+  ],
+  "history_reconciliation": [
+    {
+      "age_days": 30,
+      "mature_customers": 4723,
+      "customer_revenue_cents": 24951899,
+      "ledger_revenue_cents": 24951899,
+      "customer_cost_cents": 14438882,
+      "ledger_cost_cents": 14438882,
+      "mismatched_customers": 0
+    },
+    {
+      "age_days": 90,
+      "mature_customers": 4187,
+      "customer_revenue_cents": 69143939,
+      "ledger_revenue_cents": 69143939,
+      "customer_cost_cents": 46524603,
+      "ledger_cost_cents": 46524603,
+      "mismatched_customers": 0
+    },
+    {
+      "age_days": 180,
+      "mature_customers": 3340,
+      "customer_revenue_cents": 98331661,
+      "ledger_revenue_cents": 98331661,
+      "customer_cost_cents": 61157268,
+      "ledger_cost_cents": 61157268,
+      "mismatched_customers": 0
+    },
+    {
+      "age_days": 365,
+      "mature_customers": 1659,
+      "customer_revenue_cents": 93103777,
+      "ledger_revenue_cents": 93103777,
+      "customer_cost_cents": 52543317,
+      "ledger_cost_cents": 52543317,
+      "mismatched_customers": 0
+    }
+  ],
+  "cohort_reconciliation_mismatches": 0,
+  "spend_reconciliation": [
+    {
+      "allocation_method": "CALENDAR",
+      "source_cents": 33067679,
+      "allocated_cents": 33067679,
+      "absolute_difference_cents": 0
+    },
+    {
+      "allocation_method": "TOUCH_WEIGHT",
+      "source_cents": 33067679,
+      "allocated_cents": 33067679,
+      "absolute_difference_cents": 0
+    }
+  ],
+  "exception_counts": [
+    {
+      "reason": "DUPLICATE_DELIVERY",
+      "count": 22
+    },
+    {
+      "reason": "IDENTITY_AMBIGUOUS",
+      "count": 1
+    },
+    {
+      "reason": "IDENTITY_MISSING",
+      "count": 1
+    },
+    {
+      "reason": "LATE_RECORD",
+      "count": 23
+    },
+    {
+      "reason": "MISSING_PLAN",
+      "count": 36
+    }
+  ],
+  "output_files": {
+    "acquisition.parquet": "4efb83814f986d17637db20266d1270593836817b5d7802b3d05a17f0e3ea4bd",
+    "activation.parquet": "2dbacf07ed8343ccc0daf9efdfe3c0f248f20bf5561ec863a14ab074221c5a00",
+    "allocation_comparison.csv": "e6e9720c5b1669197a6349cb430ea0df5de15e93c3320bb84fffd69416afbce6",
+    "attribution.parquet": "77f3349dc07c5e2017b25f3d3d622a2555726b56fb5e94bb34515e869aabcee5",
+    "campaign_monitoring.csv": "c9b53d594d739d8ccdd67530898e7849044a3af03e44bd431929a8c76bb69ccf",
+    "campaign_performance_day.parquet": "72911fb001f51e9bf617c1232623632c952810ae6da7291fd30391f858d8a528",
+    "canonical_activity.parquet": "12ce1f6d05a1ea2bc25affb5eec14af4acced64f27396764538f0267539c3595",
+    "channel_cohort.parquet": "3b499b2aaaebf9d46bb73ea2e4ac4b95b1d0f06abc210b8a8f867aee0d76e4b2",
+    "cohort_comparison.csv": "64162d6dbac834dfce961a6018eebae9b8f60a34099bdbb2517da129348f8a3b",
+    "cohort_reconciliation.csv": "095378451b609ddcaff1a429a50fc057d9a22f3978faadf20613b23e0aa40b41",
+    "controlled_comparison.json": "5cd1d3a8fb90d62315ba81b00c364e31cdc56c4c68c35d2d77a31defd7da8b40",
+    "customer_age.parquet": "fa094797b93bf27f81e28fc332820b4ad56e3727033f71370f9e0d2c3df31dc3",
+    "exception_log.parquet": "182c754bd880d7b0c93f9dd90ae03f6ac70fe448cfe6b23d753943fc9bffe322",
+    "feature_snapshot.parquet": "9c59d3f7970caddb99514dbc903473ee4dea6fe787303e1ee0f8911d96438eb5",
+    "financial_event.parquet": "82dca2c3afb666fd484ac6273640fd804e3959acad8f4ff1af36205359a2ae89",
+    "financial_reconciliation.csv": "33823220e1ac4a7c8132440cebfdfad8a2d8ed1561d8eec24dc2eb754c1035a6",
+    "forecast_model.parquet": "24dbce12dfa29d579419ced94ca1d5d0b8050e6f4616dece067d3dde20c4bed8",
+    "history_reconciliation.csv": "842bb196aa4d11a066cec776919c4a7b541679f58501ea4049b8fd16d07d4aff",
+    "marketing_reconciliation.csv": "a10d047e6c99785b8b19bce0fc9e9b5d7a4787d73935808dd032f22f6a04fc29",
+    "prediction.parquet": "bdc476fa24361d33808a834aa7e0ab5c8ed57b89a2afb3a21820443f0e843c52",
+    "prediction_age.parquet": "641e3ae417baaa88d287bc183e0cf48a18ce09a556c3cf1b93c3110d6febabe4",
+    "scenario_comparison.csv": "177163488f53a20781b05890502e4bff268f3229bb19611060e99b17cb8862db",
+    "source_disposition.parquet": "50f58c08b536f5df98091c324870d228767bf90db3553612dd8bfd70c49bc7e8",
+    "spend_allocation.parquet": "92cec6f60c1fa6bcc5b0ac7d46b5b4e549b7c4270757b65801f439d76cd675eb",
+    "worked_customer_summary.csv": "f5b5404640b45874c8f6ab99f591317e25cfc73828dd81381c2c7377edd5cf26",
+    "worked_customer_trace.csv": "532cbce0fc1301e6a5704cd2f6ed2e220bc3e42306503e411bdc9bf15a56aee3"
+  }
+}
