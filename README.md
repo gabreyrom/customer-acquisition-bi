@@ -4,7 +4,7 @@
 
 An end-to-end business intelligence prototype for a hypothetical digital bank. It connects acquisition records with customer and financial activity so a growth team can see what it spent to acquire customers, what contribution it expected at signup, and what contribution those customers generated as they matured.
 
-**Prototype** : http://gabrielreynosoromero.com/customer-acquisition-bi/
+**Dashboard Prototype** : http://gabrielreynosoromero.com/customer-acquisition-bi/
 
 ## The business question
 
