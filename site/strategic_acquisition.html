@@ -1,10 +1,11 @@
-<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Strategic Acquisition Performance</title><style>body{margin:0;background:#eef3f5;color:#193847;font:15px system-ui,sans-serif}main{max-width:1100px;margin:auto;padding:24px}section,header{background:#fff;border:1px solid #dee8ed;border-radius:10px;padding:18px;margin-bottom:14px}h1,h2,p{margin:0 0 10px}h1{font-size:29px}h2{font-size:19px}p,small{color:#395969}.filters{display:flex;gap:12px;flex-wrap:wrap}.filters label{display:grid;gap:4px;font-size:13px}input,select{font:inherit;color:#193847;padding:6px;border:1px solid #9ab2bd;border-radius:5px;background:white}svg{width:100%;height:auto;display:block}.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,430px),1fr))}.scroll{overflow:auto}table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}th,td{text-align:right;padding:8px;border-bottom:1px solid #dce7eb}th:first-child,td:first-child{text-align:left}.cards{display:flex;gap:12px;flex-wrap:wrap}.cards div{background:#eaf3f7;padding:8px 14px;border-radius:7px}.cards strong{display:block;font-size:20px}</style><main><header><h1>Strategic Acquisition Performance</h1><p>Synthetic digital bank · C-1.0.1 · July 1, 2026 00:00 UTC snapshot</p></header><section class="filters" id="filters"></section><section><h2>Selected cohort scope</h2><div class="cards" id="cards"></div></section><section><div id="curve"></div><small>Only observed checkpoints are plotted. Connecting lines guide reading. Expected and realized use the identical mature population. Source: channel_cohort.parquet.</small></section><section><div id="eff"></div><small>Calendar allocation. Unknown attribution has no paid spend ratio. ROAS always uses mature 90-day rows. Other metrics use the selected maximum age.</small></section><section><h2>Maturity and coverage</h2><div id="detail"></div><small>Pending portions are not finalized outcomes. Coverage is paid-attributed divided by all canonical signups, independent of the trajectory's channel filter.</small></section></main><noscript>Enable local JavaScript to show the charts and filters. The presentation SVG extracts require no JavaScript.</noscript><script>const colors=['#006780','#ad451f','#5b56a0','#67798a'];
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Strategic Acquisition Performance</title><style>body{margin:0;background:#eef3f5;color:#193847;font:15px system-ui,sans-serif}main{max-width:1100px;margin:auto;padding:24px}section,header{background:#fff;border:1px solid #dee8ed;border-radius:10px;padding:18px;margin-bottom:14px}h1,h2,p{margin:0 0 10px}h1{font-size:29px}h2{font-size:19px}p,small{color:#395969}.filters{display:flex;gap:12px;flex-wrap:wrap}.filters label{display:grid;gap:4px;font-size:13px}input,select{font:inherit;color:#193847;padding:6px;border:1px solid #9ab2bd;border-radius:5px;background:white}svg{width:100%;height:auto;display:block}.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,430px),1fr))}.scroll{overflow:auto}table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}th,td{text-align:right;padding:8px;border-bottom:1px solid #dce7eb}th:first-child,td:first-child{text-align:left}.cards{display:flex;gap:12px;flex-wrap:wrap}.cards div{background:#eaf3f7;padding:8px 14px;border-radius:7px}.cards strong{display:block;font-size:20px}</style><main><header><p><a href="./" style="color:#006780">← Overview</a></p><h1>Strategic Acquisition Performance</h1><p>Synthetic digital bank · Data as of July 1, 2026</p></header><section class="filters" id="filters"></section><section><h2>Signup months selected</h2><div class="cards" id="cards"></div></section><section><div id="curve"></div><small>Solid lines show realized contribution; dashed lines show the contribution expected at signup. The expected value is a fixed rule-based estimate made at signup and never revised, so a large gap is a finding to investigate rather than an error. Cumulative contribution can fall between checkpoints when a period's costs, such as credit losses or rewards, exceed its revenue. Both lines use the same customers, and a checkpoint appears only once every customer in the month has reached that age.</small></section><section><div id="eff"></div><small>Spend is counted in the month it was paid. Signups with an unknown channel have no spend to compare against, so they are left out of this chart. ROAS always uses revenue at 90 days; the other metrics use the customer age selected above.</small></section><section><h2>Checkpoint detail</h2><div id="detail"></div><small>Pending means some customers have not yet reached that age, so there is no final result yet. The signup month cards count all signups in the month, regardless of the channel selected.</small></section></main><noscript>Enable JavaScript to show the charts and filters.</noscript><script>const colors=['#006780','#ad451f','#5b56a0','#67798a'];
 const esc=v=>String(v).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 const money=v=>v==null?'Unavailable':new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(v);
 const fmt=(v,u)=>v==null?'Unavailable':u==='USD'?money(v):u==='×'?v.toFixed(2)+'×':String(v);
 function plot(title,labels,series,unit,kind='line',notes=[],positions=null,xTitle=''){
  const w=840,h=300,l=77,r=30,t=66,b=53, width=w-l-r,height=h-t-b;
- const all=series.flatMap(s=>s.v).filter(v=>v!=null);
+ const all=kind==='stack'?labels.map((_,i)=>series.reduce((s,x)=>s+(x.v[i]||0),0)):series.flatMap(s=>s.v).filter(v=>v!=null);
+ const base=labels.map(()=>0);
  let low=Math.min(0,...all),high=Math.max(1,...all);
  const y=v=>t+(high-v)/(high-low)*height;
  const step=width/Math.max(1,labels.length);
@@ -16,12 +17,13 @@ function plot(title,labels,series,unit,kind='line',notes=[],positions=null,xTitl
   a.push(`<line x1="${lx}" x2="${lx+20}" y1="45" y2="45" stroke="${c}" stroke-width="3" ${s.d?'stroke-dasharray="5 4"':''}/><text x="${lx+25}" y="49" font-size="12">${esc(s.name)}</text>`);
   lx+=Math.max(117,s.name.length*7+34);
  }
- const count=unit==='count'?Math.min(4,high):4;
- for(let i=0;i<=count;i++){
-  let v=low+(high-low)*i/count;
-  if(unit==='count')v=Math.round(v);
-  let u=y(v);
-  a.push(`<line x1="${l}" x2="${w-r}" y1="${u}" y2="${u}" stroke="#dbe5e9"/><text x="${l-7}" y="${u+4}" text-anchor="end" font-size="11">${esc(unit==='USD'?'$'+v.toFixed(0):unit==='×'?v.toFixed(1)+'×':v)}</text>`);
+ const span=(high-low)/4, mag=10**Math.floor(Math.log10(span));
+ const stepY=Math.max(unit==='count'?1:0,(unit==='count'?[1,2,5,10]:[1,2,2.5,5,10]).map(f=>f*mag).find(s=>s>=span));
+ low=Math.floor(low/stepY)*stepY; high=Math.ceil(high/stepY)*stepY;
+ for(let i=0;i<=Math.round((high-low)/stepY);i++){
+  const v=+(low+i*stepY).toFixed(6), u=y(v);
+  const label=unit==='USD'?(v<0?'−$':'$')+Math.abs(v).toLocaleString('en-US'):unit==='×'?v+'×':v;
+  a.push(`<line x1="${l}" x2="${w-r}" y1="${u}" y2="${u}" stroke="#dbe5e9"/><text x="${l-7}" y="${u+4}" text-anchor="end" font-size="11">${esc(label)}</text>`);
  }
  for(let i=0;i<labels.length;i++){
   a.push(`<text x="${x(i)}" y="266" text-anchor="middle" font-size="12">${esc(labels[i])}</text>`);
@@ -34,7 +36,12 @@ function plot(title,labels,series,unit,kind='line',notes=[],positions=null,xTitl
   s.v.forEach((v,i)=>{
    if(v==null)return;
    const tip=esc(s.name+' · '+labels[i]+': '+fmt(v,unit)+(s.detail?.[i]?' · '+s.detail[i]:''));
-   if(kind==='bar'){
+   if(kind==='stack'){
+    if(!v)return;
+    const bw=Math.min(56,step*.6);
+    a.push(`<rect x="${x(i)-bw/2}" y="${y(base[i]+v)}" width="${bw}" height="${y(base[i])-y(base[i]+v)}" fill="${c}"><title>${tip}</title></rect>`);
+    base[i]+=v;
+   }else if(kind==='bar'){
     const bw=Math.min(56,step*.72/series.length), xx=x(i)+(k-(series.length-1)/2)*bw-bw*.44;
     a.push(`<rect x="${xx}" y="${Math.min(y(v),y(0))}" width="${bw*.88}" height="${Math.max(1,Math.abs(y(v)-y(0)))}" fill="${c}"><title>${tip}</title></rect>`);
    }else{
@@ -45,8 +52,9 @@ function plot(title,labels,series,unit,kind='line',notes=[],positions=null,xTitl
  }
  return a.join('')+'</g></svg>';
 }
-const ages=[30,90,180,365], channels={GOOGLE_ADS:'Google Ads',META_ADS:'Meta Ads',PAID_AFFILIATES:'Paid affiliates',UNKNOWN:'Unknown'};
-const metrics={cac:'CAC',roas:'90-day revenue ROAS',eff:'Realized contribution per spend'};
+const ages=[30,90,180,365], channels={GOOGLE_ADS:'Google Ads',META_ADS:'Meta Ads',PAID_AFFILIATES:'Paid affiliates',UNKNOWN:'Unknown channel'};
+const mon=m=>new Date(m+'-01T00:00Z').toLocaleString('en-US',{month:'short',year:'numeric',timeZone:'UTC'});
+const metrics={cac:'Acquisition cost per customer (CAC)',roas:'90-day revenue ROAS',eff:'Realized contribution per $1 of spend'};
 const labels=r=>r.map(x=>x.day.slice(5));
 function table(head,rows){return '<div class="scroll"><table><thead><tr>'+head.map(x=>'<th scope="col">'+esc(x)+'</th>').join('')+'</tr></thead><tbody>'+rows.map(r=>'<tr>'+r.map(x=>'<td>'+esc(x)+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>'}
 function cohortModel(data,months,channel,model,maxAge){
@@ -62,16 +70,16 @@ function cohortModel(data,months,channel,model,maxAge){
 }
 function cohortSvg(co){
  const series=co.groups.flatMap((g,i)=>[
-  {name:g.month+' realized',v:g.points.map(p=>p.real),c:colors[i*2],detail:g.points.map(p=>p.m+' mature of '+p.n)},
-  {name:g.month+' expected',v:g.points.map(p=>p.expected),c:colors[i*2+1],d:true,detail:g.points.map(p=>p.m+' mature of '+p.n)}]);
+  {name:mon(g.month)+' realized',v:g.points.map(p=>p.real),c:colors[i],detail:g.points.map(p=>p.m+' of '+p.n+' customers reached this age')},
+  {name:mon(g.month)+' expected',v:g.points.map(p=>p.expected),c:colors[i],d:true,detail:g.points.map(p=>p.m+' of '+p.n+' customers reached this age')}]);
  const last=co.selected.at(-1)===365&&co.groups.every(g=>!g.points.at(-1).ok)?co.selected.length-1:co.selected.length;
  const shown=co.selected.slice(0,last);
- return plot('Customer Cohort Evolution · USD per acquired customer',shown.map(x=>x+'d'),series.map(s=>({...s,v:s.v.slice(0,last)})),'USD','line',[],shown,'Elapsed customer age since acquisition');
+ return plot('Cumulative contribution per customer · USD',shown.map(x=>x+'d'),series.map(s=>({...s,v:s.v.slice(0,last)})),'USD','line',[],shown,'Days since signup');
 }
 function efficiencySvg(data,months,model,age,metric){
  const keys=Object.keys(channels).filter(k=>k!=='UNKNOWN');
  return plot(metrics[metric]+' by acquisition channel',keys.map(k=>channels[k]),
-  months.map(month=>({name:month,v:keys.map(channel=>data.find(r=>r.month===month&&r.channel===channel&&r.age===age&&r.model===model)?.[metric]??null)})),
+  months.map(month=>({name:mon(month),v:keys.map(channel=>data.find(r=>r.month===month&&r.channel===channel&&r.age===age&&r.model===model)?.[metric]??null)})),
   metric==='cac'?'USD':'×','bar');
 }
 function operationalSvgs(r){
@@ -79,9 +87,9 @@ function operationalSvgs(r){
  return {
   'campaign_daily_spend':plot('Daily campaign spend · USD',day,[{name:'Actual',v:r.map(x=>x.actual==null?null:x.actual/100)},{name:'Plan',v:r.map(x=>x.plan==null?null:x.plan/100),d:true}],'USD','line',r.map(x=>x.plan==null?'Plan missing':'')),
   'campaign_cumulative_spend':plot('Month-to-date spend · USD',day,[{name:'Actual to date',v:r.map(x=>x.atd==null?null:x.atd/100)},{name:'Plan to date',v:r.map(x=>x.ptd==null?null:x.ptd/100),d:true}],'USD','line',r.map(x=>x.ptd==null?'Unavailable':'')),
-  'campaign_registrations':plot('Daily attributed registrations · count',day,[{name:'Registrations',v:r.map(x=>x.n)}],'count','bar'),
-  'campaign_cac':plot('Daily CAC · USD per signup',day,[{name:'Eligible spend per signup',v:r.map(x=>x.cac)}],'USD','line',r.map(x=>x.cac==null?'N/A':'')),
-  'campaign_activation_maturity':plot('30-day activation status · signup count',day,[{name:'Activated · mature',v:r.map(x=>x.a)},{name:'Not activated · mature',v:r.map(x=>x.m-x.a)},{name:'Pending',v:r.map(x=>x.n-x.m)}],'count','bar')
+  'campaign_registrations':plot('Daily signups · count',day,[{name:'Signups',v:r.map(x=>x.n)}],'count','bar'),
+  'campaign_cac':plot('Daily acquisition cost per signup (CAC) · USD',day,[{name:'Cost per signup',v:r.map(x=>x.cac)}],'USD','line',r.map(x=>x.cac==null?'No signups':'')),
+  'campaign_activation_maturity':plot('Activation within 30 days of signup · signups',day,[{name:'Activated',v:r.map(x=>x.a)},{name:'Not activated',v:r.map(x=>x.m-x.a)},{name:'Under 30 days old',v:r.map(x=>x.n-x.m)}],'count','stack')
  };
 }
 if(typeof module!=='undefined')module.exports={cohortModel,cohortSvg,efficiencySvg,operationalSvgs};
@@ -91,11 +99,11 @@ const data=[{"month":"2025-01","channel":"GOOGLE_ADS","age":30,"model":"A_v0.3_B
 const get=id=>document.getElementById(id), months=[...new Set(data.map(r=>r.month))];
 const options=(items,initial)=>items.map(([k,v])=>`<option value="${k}" ${k===initial?'selected':''}>${v}</option>`).join('');
 const controls=[
- ['first','Cohort',months.map(m=>[m,m]),'2025-03'],
- ['second','Compare with',[['','None'],...months.map(m=>[m,m])],'2025-09'],
- ['channel','Channel / attribution',[['ALL','All canonical'],['PAID','Paid attribution'],...Object.entries(channels)],'GOOGLE_ADS'],
- ['age','Show checkpoints through',ages.map(a=>[a,a+' days']),365],
- ['model','Forecast scenario',[['A_v0.3_BASELINE','Fixed baseline'],['A_v0.3_EQUAL_CHANNEL','Equal-channel sensitivity']],'A_v0.3_BASELINE'],
+ ['first','Signup month',months.map(m=>[m,mon(m)]),'2025-03'],
+ ['second','Compare with',[['','None'],...months.map(m=>[m,mon(m)])],'2025-09'],
+ ['channel','Acquisition channel',[['ALL','All signups'],['PAID','All paid channels'],...Object.entries(channels)],'GOOGLE_ADS'],
+ ['age','Customer age up to',ages.map(a=>[a,a+' days']),365],
+ ['model','Expected-value assumptions',[['A_v0.3_BASELINE','Baseline (channel-specific)'],['A_v0.3_EQUAL_CHANNEL','Same for every channel']],'A_v0.3_BASELINE'],
  ['metric','Efficiency metric',Object.entries(metrics),'roas']];
 get('filters').innerHTML=controls.map(([id,label,items,initial])=>`<label>${label}<select id="${id}">${options(items,initial)}</select></label>`).join('');
 function draw(){
@@ -103,11 +111,11 @@ function draw(){
  max=+get('age').value, metric=get('metric').value;
  const c=cohortModel(data,ms,get('channel').value,model,max);
  const cover=m=>data.filter(r=>r.month===m&&r.age===30&&r.model===model).reduce((a,r)=>[a[0]+r.paid,a[1]+r.n],[0,0]);
- get('cards').innerHTML=ms.map(m=>{const [p,n]=cover(m);return `<div>${m} · Paid coverage<strong>${p}/${n}</strong>${n-p} unknown signups</div>`;}).join('');
+ get('cards').innerHTML=ms.map(m=>{const [p,n]=cover(m);return `<div>${mon(m)} · signups with a known paid channel<strong>${p} of ${n}</strong>${n-p} with unknown channel</div>`;}).join('');
  get('curve').innerHTML=cohortSvg(c);
  get('eff').innerHTML=efficiencySvg(data,ms,model,metric==='roas'?90:max,metric);
- get('detail').innerHTML=table(['Cohort','Age','Mature / eligible','Comparison','Expected / signup','Realized / signup'],
-  c.groups.flatMap(g=>g.points.map((p,i)=>[g.month,c.selected[i],p.m+'/'+p.n,p.ok?'Mature':p.n?'Pending':'No eligible customers',money(p.expected),money(p.real)])));
+ get('detail').innerHTML=table(['Signup month','Customer age (days)','Customers who reached this age','Status','Expected per customer','Realized per customer'],
+  c.groups.flatMap(g=>g.points.map((p,i)=>[mon(g.month),c.selected[i],p.m+' of '+p.n,p.ok?'Complete':p.n?'Pending':'No signups',money(p.expected),money(p.real)])));
 }
 get('filters').addEventListener('change',draw);draw();
 </script></html>

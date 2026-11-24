@@ -1,10 +1,11 @@
-<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Operational Campaign Monitoring</title><style>body{margin:0;background:#eef3f5;color:#193847;font:15px system-ui,sans-serif}main{max-width:1100px;margin:auto;padding:24px}section,header{background:#fff;border:1px solid #dee8ed;border-radius:10px;padding:18px;margin-bottom:14px}h1,h2,p{margin:0 0 10px}h1{font-size:29px}h2{font-size:19px}p,small{color:#395969}.filters{display:flex;gap:12px;flex-wrap:wrap}.filters label{display:grid;gap:4px;font-size:13px}input,select{font:inherit;color:#193847;padding:6px;border:1px solid #9ab2bd;border-radius:5px;background:white}svg{width:100%;height:auto;display:block}.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,430px),1fr))}.scroll{overflow:auto}table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}th,td{text-align:right;padding:8px;border-bottom:1px solid #dce7eb}th:first-child,td:first-child{text-align:left}.cards{display:flex;gap:12px;flex-wrap:wrap}.cards div{background:#eaf3f7;padding:8px 14px;border-radius:7px}.cards strong{display:block;font-size:20px}</style><main><header><h1>Operational Campaign Monitoring</h1><p>Synthetic digital bank · C-1.0.1 · July 1, 2026 00:00 UTC snapshot</p></header><section class="filters"><label>Campaign<select id="campaign"></select></label><label>Start date<input id="start" type="date" value="2026-06-01"></label><label>End date<input id="end" type="date" value="2026-06-07"></label></section><section><h2>Selected period</h2><div class="cards" id="cards"></div><p id="status"></p></section><section id="campaign_daily_spend"></section><section id="campaign_cumulative_spend"></section><div class="grid"><section id="campaign_registrations"></section><section id="campaign_cac"></section></div><section id="campaign_activation_maturity"></section><section><h2>Daily records and data availability</h2><div id="detail"></div><small>Daily CAC is a monitoring proxy. A missing daily plan is distinct from an unavailable cumulative plan. The recorded snapshot is the refresh timestamp. Source: campaign_performance_day.parquet.</small></section></main><noscript>Enable local JavaScript to show the charts and filters. The presentation SVG extracts require no JavaScript.</noscript><script>const colors=['#006780','#ad451f','#5b56a0','#67798a'];
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Operational Campaign Monitoring</title><style>body{margin:0;background:#eef3f5;color:#193847;font:15px system-ui,sans-serif}main{max-width:1100px;margin:auto;padding:24px}section,header{background:#fff;border:1px solid #dee8ed;border-radius:10px;padding:18px;margin-bottom:14px}h1,h2,p{margin:0 0 10px}h1{font-size:29px}h2{font-size:19px}p,small{color:#395969}.filters{display:flex;gap:12px;flex-wrap:wrap}.filters label{display:grid;gap:4px;font-size:13px}input,select{font:inherit;color:#193847;padding:6px;border:1px solid #9ab2bd;border-radius:5px;background:white}svg{width:100%;height:auto;display:block}.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,430px),1fr))}.scroll{overflow:auto}table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}th,td{text-align:right;padding:8px;border-bottom:1px solid #dce7eb}th:first-child,td:first-child{text-align:left;white-space:nowrap}.cards{display:flex;gap:12px;flex-wrap:wrap}.cards div{background:#eaf3f7;padding:8px 14px;border-radius:7px}.cards strong{display:block;font-size:20px}</style><main><header><p><a href="./" style="color:#006780">← Overview</a></p><h1>Operational Campaign Monitoring</h1><p>Synthetic digital bank · Data as of July 1, 2026</p></header><section class="filters"><label>Campaign<select id="campaign"></select></label><label>Start date<input id="start" type="date" value="2026-06-01"></label><label>End date<input id="end" type="date" value="2026-06-07"></label></section><section><h2>Selected period</h2><div class="cards" id="cards"></div><p id="status"></p></section><section id="campaign_daily_spend"></section><section id="campaign_cumulative_spend"></section><section id="campaign_registrations"></section><section id="campaign_cac"></section><section id="campaign_activation_maturity"></section><section><h2>Daily detail</h2><div id="detail"></div><small>Daily cost per signup is a rough monitoring signal: signups can arrive days after the spend that drove them. “Not activated” counts only customers at least 30 days past signup. Expected contribution is the first-year value estimated at signup. Dates are UTC.</small></section></main><noscript>Enable JavaScript to show the charts and filters.</noscript><script>const colors=['#006780','#ad451f','#5b56a0','#67798a'];
 const esc=v=>String(v).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 const money=v=>v==null?'Unavailable':new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(v);
 const fmt=(v,u)=>v==null?'Unavailable':u==='USD'?money(v):u==='×'?v.toFixed(2)+'×':String(v);
 function plot(title,labels,series,unit,kind='line',notes=[],positions=null,xTitle=''){
  const w=840,h=300,l=77,r=30,t=66,b=53, width=w-l-r,height=h-t-b;
- const all=series.flatMap(s=>s.v).filter(v=>v!=null);
+ const all=kind==='stack'?labels.map((_,i)=>series.reduce((s,x)=>s+(x.v[i]||0),0)):series.flatMap(s=>s.v).filter(v=>v!=null);
+ const base=labels.map(()=>0);
  let low=Math.min(0,...all),high=Math.max(1,...all);
  const y=v=>t+(high-v)/(high-low)*height;
  const step=width/Math.max(1,labels.length);
@@ -16,12 +17,13 @@ function plot(title,labels,series,unit,kind='line',notes=[],positions=null,xTitl
   a.push(`<line x1="${lx}" x2="${lx+20}" y1="45" y2="45" stroke="${c}" stroke-width="3" ${s.d?'stroke-dasharray="5 4"':''}/><text x="${lx+25}" y="49" font-size="12">${esc(s.name)}</text>`);
   lx+=Math.max(117,s.name.length*7+34);
  }
- const count=unit==='count'?Math.min(4,high):4;
- for(let i=0;i<=count;i++){
-  let v=low+(high-low)*i/count;
-  if(unit==='count')v=Math.round(v);
-  let u=y(v);
-  a.push(`<line x1="${l}" x2="${w-r}" y1="${u}" y2="${u}" stroke="#dbe5e9"/><text x="${l-7}" y="${u+4}" text-anchor="end" font-size="11">${esc(unit==='USD'?'$'+v.toFixed(0):unit==='×'?v.toFixed(1)+'×':v)}</text>`);
+ const span=(high-low)/4, mag=10**Math.floor(Math.log10(span));
+ const stepY=Math.max(unit==='count'?1:0,(unit==='count'?[1,2,5,10]:[1,2,2.5,5,10]).map(f=>f*mag).find(s=>s>=span));
+ low=Math.floor(low/stepY)*stepY; high=Math.ceil(high/stepY)*stepY;
+ for(let i=0;i<=Math.round((high-low)/stepY);i++){
+  const v=+(low+i*stepY).toFixed(6), u=y(v);
+  const label=unit==='USD'?(v<0?'−$':'$')+Math.abs(v).toLocaleString('en-US'):unit==='×'?v+'×':v;
+  a.push(`<line x1="${l}" x2="${w-r}" y1="${u}" y2="${u}" stroke="#dbe5e9"/><text x="${l-7}" y="${u+4}" text-anchor="end" font-size="11">${esc(label)}</text>`);
  }
  for(let i=0;i<labels.length;i++){
   a.push(`<text x="${x(i)}" y="266" text-anchor="middle" font-size="12">${esc(labels[i])}</text>`);
@@ -34,7 +36,12 @@ function plot(title,labels,series,unit,kind='line',notes=[],positions=null,xTitl
   s.v.forEach((v,i)=>{
    if(v==null)return;
    const tip=esc(s.name+' · '+labels[i]+': '+fmt(v,unit)+(s.detail?.[i]?' · '+s.detail[i]:''));
-   if(kind==='bar'){
+   if(kind==='stack'){
+    if(!v)return;
+    const bw=Math.min(56,step*.6);
+    a.push(`<rect x="${x(i)-bw/2}" y="${y(base[i]+v)}" width="${bw}" height="${y(base[i])-y(base[i]+v)}" fill="${c}"><title>${tip}</title></rect>`);
+    base[i]+=v;
+   }else if(kind==='bar'){
     const bw=Math.min(56,step*.72/series.length), xx=x(i)+(k-(series.length-1)/2)*bw-bw*.44;
     a.push(`<rect x="${xx}" y="${Math.min(y(v),y(0))}" width="${bw*.88}" height="${Math.max(1,Math.abs(y(v)-y(0)))}" fill="${c}"><title>${tip}</title></rect>`);
    }else{
@@ -45,8 +52,9 @@ function plot(title,labels,series,unit,kind='line',notes=[],positions=null,xTitl
  }
  return a.join('')+'</g></svg>';
 }
-const ages=[30,90,180,365], channels={GOOGLE_ADS:'Google Ads',META_ADS:'Meta Ads',PAID_AFFILIATES:'Paid affiliates',UNKNOWN:'Unknown'};
-const metrics={cac:'CAC',roas:'90-day revenue ROAS',eff:'Realized contribution per spend'};
+const ages=[30,90,180,365], channels={GOOGLE_ADS:'Google Ads',META_ADS:'Meta Ads',PAID_AFFILIATES:'Paid affiliates',UNKNOWN:'Unknown channel'};
+const mon=m=>new Date(m+'-01T00:00Z').toLocaleString('en-US',{month:'short',year:'numeric',timeZone:'UTC'});
+const metrics={cac:'Acquisition cost per customer (CAC)',roas:'90-day revenue ROAS',eff:'Realized contribution per $1 of spend'};
 const labels=r=>r.map(x=>x.day.slice(5));
 function table(head,rows){return '<div class="scroll"><table><thead><tr>'+head.map(x=>'<th scope="col">'+esc(x)+'</th>').join('')+'</tr></thead><tbody>'+rows.map(r=>'<tr>'+r.map(x=>'<td>'+esc(x)+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>'}
 function cohortModel(data,months,channel,model,maxAge){
@@ -62,16 +70,16 @@ function cohortModel(data,months,channel,model,maxAge){
 }
 function cohortSvg(co){
  const series=co.groups.flatMap((g,i)=>[
-  {name:g.month+' realized',v:g.points.map(p=>p.real),c:colors[i*2],detail:g.points.map(p=>p.m+' mature of '+p.n)},
-  {name:g.month+' expected',v:g.points.map(p=>p.expected),c:colors[i*2+1],d:true,detail:g.points.map(p=>p.m+' mature of '+p.n)}]);
+  {name:mon(g.month)+' realized',v:g.points.map(p=>p.real),c:colors[i],detail:g.points.map(p=>p.m+' of '+p.n+' customers reached this age')},
+  {name:mon(g.month)+' expected',v:g.points.map(p=>p.expected),c:colors[i],d:true,detail:g.points.map(p=>p.m+' of '+p.n+' customers reached this age')}]);
  const last=co.selected.at(-1)===365&&co.groups.every(g=>!g.points.at(-1).ok)?co.selected.length-1:co.selected.length;
  const shown=co.selected.slice(0,last);
- return plot('Customer Cohort Evolution · USD per acquired customer',shown.map(x=>x+'d'),series.map(s=>({...s,v:s.v.slice(0,last)})),'USD','line',[],shown,'Elapsed customer age since acquisition');
+ return plot('Cumulative contribution per customer · USD',shown.map(x=>x+'d'),series.map(s=>({...s,v:s.v.slice(0,last)})),'USD','line',[],shown,'Days since signup');
 }
 function efficiencySvg(data,months,model,age,metric){
  const keys=Object.keys(channels).filter(k=>k!=='UNKNOWN');
  return plot(metrics[metric]+' by acquisition channel',keys.map(k=>channels[k]),
-  months.map(month=>({name:month,v:keys.map(channel=>data.find(r=>r.month===month&&r.channel===channel&&r.age===age&&r.model===model)?.[metric]??null)})),
+  months.map(month=>({name:mon(month),v:keys.map(channel=>data.find(r=>r.month===month&&r.channel===channel&&r.age===age&&r.model===model)?.[metric]??null)})),
   metric==='cac'?'USD':'×','bar');
 }
 function operationalSvgs(r){
@@ -79,9 +87,9 @@ function operationalSvgs(r){
  return {
   'campaign_daily_spend':plot('Daily campaign spend · USD',day,[{name:'Actual',v:r.map(x=>x.actual==null?null:x.actual/100)},{name:'Plan',v:r.map(x=>x.plan==null?null:x.plan/100),d:true}],'USD','line',r.map(x=>x.plan==null?'Plan missing':'')),
   'campaign_cumulative_spend':plot('Month-to-date spend · USD',day,[{name:'Actual to date',v:r.map(x=>x.atd==null?null:x.atd/100)},{name:'Plan to date',v:r.map(x=>x.ptd==null?null:x.ptd/100),d:true}],'USD','line',r.map(x=>x.ptd==null?'Unavailable':'')),
-  'campaign_registrations':plot('Daily attributed registrations · count',day,[{name:'Registrations',v:r.map(x=>x.n)}],'count','bar'),
-  'campaign_cac':plot('Daily CAC · USD per signup',day,[{name:'Eligible spend per signup',v:r.map(x=>x.cac)}],'USD','line',r.map(x=>x.cac==null?'N/A':'')),
-  'campaign_activation_maturity':plot('30-day activation status · signup count',day,[{name:'Activated · mature',v:r.map(x=>x.a)},{name:'Not activated · mature',v:r.map(x=>x.m-x.a)},{name:'Pending',v:r.map(x=>x.n-x.m)}],'count','bar')
+  'campaign_registrations':plot('Daily signups · count',day,[{name:'Signups',v:r.map(x=>x.n)}],'count','bar'),
+  'campaign_cac':plot('Daily acquisition cost per signup (CAC) · USD',day,[{name:'Cost per signup',v:r.map(x=>x.cac)}],'USD','line',r.map(x=>x.cac==null?'No signups':'')),
+  'campaign_activation_maturity':plot('Activation within 30 days of signup · signups',day,[{name:'Activated',v:r.map(x=>x.a)},{name:'Not activated',v:r.map(x=>x.m-x.a)},{name:'Under 30 days old',v:r.map(x=>x.n-x.m)}],'count','stack')
  };
 }
 if(typeof module!=='undefined')module.exports={cohortModel,cohortSvg,efficiencySvg,operationalSvgs};
@@ -90,7 +98,8 @@ const data=[{"day":"2025-01-01","campaign":"F1","actual":11796,"eligible":11796,
 
 const get=id=>document.getElementById(id);
 const campaigns=[...new Set(data.map(r=>r.campaign))];
-get('campaign').innerHTML=campaigns.map(c=>`<option>${c}</option>`).join('');
+const campChannel={G:'Google Ads',M:'Meta Ads',F:'Paid affiliates'};
+get('campaign').innerHTML=campaigns.map(c=>`<option value="${c}">${c} · ${campChannel[c[0]]}</option>`).join('');
 get('campaign').value='F1';
 for(const id of ['start','end']){
  get(id).min=data[0].day;get(id).max=data.at(-1).day;
@@ -100,17 +109,17 @@ function draw(){
  const r=data.filter(x=>x.campaign===get('campaign').value&&x.day>=begin&&x.day<=end);
  const additive=key=>r.length&&r.every(x=>x[key]!=null)?r.reduce((s,x)=>s+x[key],0):null;
  const actual=additive('actual'),eligible=additive('eligible'),plan=additive('plan'),n=additive('n'),m=additive('m'),a=additive('a'), forecast=additive('forecast');
- const info=[['Actual spend',money(actual==null?null:actual/100)],['Selected-period plan',money(plan==null?null:plan/100)],
- ['Signups',n??'Unavailable'],['Period CAC',money(eligible!=null&&n?eligible/n/100:null)],['Mature activation',m? a+'/'+m:'Pending / no denominator'],
- ['Summed initial forecast',money(forecast==null?null:forecast/100)]];
+ const info=[['Actual spend',money(actual==null?null:actual/100)],['Planned spend',money(plan==null?null:plan/100)],
+ ['Signups',n??'Unavailable'],['Cost per signup (CAC)',money(eligible!=null&&n?eligible/n/100:null)],['Activated within 30 days',m? a+' of '+m:'Too early to tell'],
+ ['Expected first-year contribution',money(forecast==null?null:forecast/100)]];
  get('cards').innerHTML=info.map(([k,v])=>`<div>${k}<strong>${v}</strong></div>`).join('');
  const valid=r.length&&r.length<=31;
- const status=!r.length?'No rows in the selected window.':r.length>31?'Choose at most 31 days for a readable daily chart.':r.some(x=>x.plan==null)?'A plan observation is missing. Cumulative pacing remains unavailable while period coverage is incomplete.':'Examine daily and cumulative plan availability before interpreting pacing.';
+ const status=!r.length?'No rows in the selected window.':r.length>31?'Choose 31 days or fewer to show the daily charts.':r.some(x=>x.plan==null)?'At least one day in this range has no spending plan, so planned spend and month-to-date pacing cannot be calculated.':'A spending plan exists for every day in this range.';
  get('status').textContent=status;
  const charts=operationalSvgs(valid?r:[]);
  for (const [id,svg] of Object.entries(charts))get(id).innerHTML=svg;
- get('detail').innerHTML=valid?table(['UTC date','Actual','Plan','Signups','CAC','Activated','Mature not activated','Pending','Initial forecast total','Plan status'],
-  r.map(x=>[x.day,money(x.actual==null?null:x.actual/100),money(x.plan==null?null:x.plan/100),x.n,money(x.cac),x.a,x.m-x.a,x.n-x.m,money(x.forecast/100),x.plan==null?'Daily plan missing':x.ptd==null?'Cumulative plan unavailable':'Plan available'])):'';
+ get('detail').innerHTML=valid?table(['Date','Actual spend','Planned spend','Signups','Cost per signup','Activated','Not activated','Under 30 days old','Expected contribution','Plan status'],
+  r.map(x=>[x.day,money(x.actual==null?null:x.actual/100),money(x.plan==null?null:x.plan/100),x.n,x.cac==null&&!x.n?'No signups':money(x.cac),x.a,x.m-x.a,x.n-x.m,money(x.forecast/100),x.plan==null?'No plan for this day':x.ptd==null?'Month-to-date plan incomplete':'Plan available'])):'';
 }
 for(const id of ['start','end','campaign'])get(id).addEventListener('change',draw);draw();
 </script></html>

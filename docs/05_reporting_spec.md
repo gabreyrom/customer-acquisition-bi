@@ -4,7 +4,7 @@ Evidence baseline: Specification Freeze v1.0 and independently reviewed C-1.0.1.
 
 ## Strategic Acquisition Performance
 
-Open the [static strategic wireframe](../exhibits/dashboards/strategic_acquisition.html). The Head of Growth uses it for quarterly allocation discussions and monthly historical review.
+Open the [static strategic wireframe](../site/strategic_acquisition.html). The Head of Growth uses it for quarterly allocation discussions and monthly historical review.
 
 | Page area | Recommended layout and calculation | Reporting source |
 |---|---|---|
@@ -19,7 +19,7 @@ Keep unknown attribution in coverage and customer results. Display N/A for its p
 
 ## Operational Campaign Monitoring
 
-Open the [static operational wireframe](../exhibits/dashboards/operational_campaigns.html). The Performance Marketing Manager monitors spend daily and reviews efficiency weekly. Investigate data quality before reacting to budget or activation signals.
+Open the [static operational wireframe](../site/operational_campaigns.html). The Performance Marketing Manager monitors spend daily and reviews efficiency weekly. Investigate data quality before reacting to budget or activation signals.
 
 | Page area | Recommended layout and calculation | Reporting source |
 |---|---|---|

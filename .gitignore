@@ -4,3 +4,8 @@ __pycache__/
 *.duckdb
 *.duckdb.wal
 data/synthetic_sources/
+.DS_Store
+.idea/
+.vscode/
+.pytest_cache/
+.ipynb_checkpoints/

@@ -4,7 +4,7 @@
 
 An end-to-end business intelligence prototype for a hypothetical digital bank. It connects acquisition records with customer and financial activity so a growth team can see what it spent to acquire customers, what contribution it expected at signup, and what contribution those customers generated as they matured.
 
-**Dashboard Prototype** : http://gabrielreynosoromero.com/customer-acquisition-bi/
+**Dashboard Prototype** : https://gabrielreynosoromero.com/customer-acquisition-bi/
 
 ## The business question
 
@@ -31,8 +31,8 @@ Assignment 1 proposed a reporting architecture centered on 90-day revenue ROAS. 
 
 | Start here | What to look for |
 |---|---|
-| [Strategic Acquisition Performance dashboard](exhibits/dashboards/strategic_acquisition.html) | Compare customer contribution trajectories across signup cohorts. Change the channel, maturity checkpoint, or forecast scenario. The companion efficiency chart lets you switch between metrics with different units. |
-| [Operational Campaign Monitoring dashboard](exhibits/dashboards/operational_campaigns.html) | Follow daily and cumulative actual versus planned spend, registrations, acquisition cost, and activation. The F1 example shows how a missing plan and an incomplete activation window appear. |
+| [Strategic Acquisition Performance dashboard](site/strategic_acquisition.html) | Compare customer contribution trajectories across signup cohorts. Change the channel, maturity checkpoint, or forecast scenario. The companion efficiency chart lets you switch between metrics with different units. |
+| [Operational Campaign Monitoring dashboard](site/operational_campaigns.html) | Follow daily and cumulative actual versus planned spend, registrations, acquisition cost, and activation. The F1 example shows how a missing plan and an incomplete activation window appear. |
 | [Worked customer example](exhibits/tables/d2_customer_trace.md) | Follow an underlying balance through revenue recognition, then reconcile one customer's 90-day contribution across five products. |
 | [Presentation materials](presentation/README.md) | Find the ten-slide plan, speaker notes, appendix, evidence references, and PowerPoint assembly guide. |
 
