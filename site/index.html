@@ -8,59 +8,55 @@
 <style>
 body{margin:0;background:#eef3f5;color:#193847;font:15px/1.5 system-ui,sans-serif}
 main{max-width:1100px;margin:auto;padding:24px 16px}
-section,header{background:#fff;border:1px solid #dee8ed;border-radius:10px;padding:18px;margin-bottom:14px}
-h1,h2,h3,p{margin:0 0 10px}h1{font-size:29px;line-height:1.2}h2{font-size:19px}h3{font-size:16px}
+section,header{background:#fff;border:1px solid #dee8ed;border-radius:10px;padding:24px;margin-bottom:14px}
+h1,h2,h3,p{margin:0 0 10px}h1{font-size:31px;line-height:1.2}h2{font-size:19px}h3{font-size:16px;margin-bottom:4px}
 p,small,li{color:#395969}a{color:#006780}
-.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
-.card{background:#eaf3f7;border-radius:7px;padding:14px}
-.card a.open{display:inline-block;margin-top:4px;font-weight:600}
-.stats{grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))}
-.stats strong{display:block;font-size:24px;color:#193847}
-ol{margin:0;padding-left:20px}li{margin-bottom:6px}
+.eyebrow{font-size:13px;letter-spacing:.04em;text-transform:uppercase}
+.lead{font-size:18px;color:#193847;max-width:760px}
+.flow{display:flex;align-items:stretch;gap:10px;margin:20px 0 0}
+.flow div{flex:1;background:#eaf3f7;border-radius:8px;padding:14px}
+.flow div.key{background:#006780;color:#fff}.flow div.key small{color:#d7ecf2}
+.flow strong{display:block;font-size:17px}
+.flow .arrow{flex:0;align-self:center;background:none;padding:0;font-size:22px;color:#67798a}
+.buttons{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.button{padding:22px;border-radius:8px;background:#006780;color:#fff;font-size:18px;font-weight:600;text-align:center;text-decoration:none;border:2px solid #006780}
+.button:hover,.button:focus-visible{background:#004f63}
+.button.secondary{background:#fff;color:#006780}
+.button.secondary:hover,.button.secondary:focus-visible{background:#eaf3f7}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;list-style:none;margin:0;padding:0;counter-reset:step}
+.steps li{counter-increment:step;background:#eaf3f7;border-radius:8px;padding:14px;margin:0}
+.steps li::before{content:counter(step);display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#006780;color:#fff;font-weight:700;margin-bottom:8px}
+.steps strong{display:block;color:#193847}
 </style>
 </head>
 <body>
 <main>
 <header>
+<p class="eyebrow">Stevens Institute of Technology · MIS 636 · Team 3</p>
 <h1>Customer Acquisition Value Intelligence</h1>
-<p>Stevens Institute of Technology · MIS 636 · Team 3 · Synthetic digital bank, July 1, 2026 snapshot</p>
-<p><strong>How should a digital bank decide where to invest its customer acquisition budget?</strong> Revenue ROAS tells part of the story. This prototype adds what customers contribute after funding, servicing, rewards, and credit losses, and compares groups only at the same customer age.</p>
+<p class="lead">Where should a digital bank spend its acquisition budget? Judge each channel by what its customers actually contribute, not just the revenue they bring in.</p>
+<div class="flow" aria-label="From acquisition spend to customer contribution">
+<div><strong>Spend</strong><small>What it cost to acquire the customer</small></div>
+<span class="arrow" aria-hidden="true">→</span>
+<div><strong>Revenue</strong><small>What the customer brought in (ROAS)</small></div>
+<span class="arrow" aria-hidden="true">→</span>
+<div class="key"><strong>Contribution</strong><small>Revenue minus funding, servicing, rewards and credit losses</small></div>
+</div>
 </header>
 
-<section>
-<h2>Dashboards</h2>
-<div class="grid">
-<div class="card">
-<h3>Strategic Acquisition Performance</h3>
-<p>For growth leadership. Compare expected and realized contribution per customer across signup cohorts and channels at 30, 90, 180, and 365 days, alongside CAC and 90-day revenue ROAS.</p>
-<a class="open" href="strategic_acquisition.html">Open strategic dashboard →</a>
-</div>
-<div class="card">
-<h3>Operational Campaign Monitoring</h3>
-<p>For performance marketing. Daily and month-to-date spend against plan, registrations, CAC, and 30-day activation, with missing plans and immature windows kept visible.</p>
-<a class="open" href="operational_campaigns.html">Open operational dashboard →</a>
-</div>
-</div>
+<section class="buttons">
+<a class="button" href="strategic_acquisition.html">Strategic Dashboard</a>
+<a class="button secondary" href="operational_campaigns.html">Operational Dashboard</a>
 </section>
 
 <section>
 <h2>How it works</h2>
-<ol>
-<li><strong>Connect acquisition to customers.</strong> Campaign spend, marketing touches, registrations, and product accounts are linked. Attribution uses the last eligible touch within 30 days before signup; unresolved attribution stays visible as unknown.</li>
-<li><strong>Measure realized contribution.</strong> Activity across savings, debit, credit cards, personal loans, and mortgages becomes revenue and cost entries. Deposits and loan principal stay outside earnings.</li>
-<li><strong>Freeze what was expected at signup.</strong> A rule-based first-year contribution estimate, with its expected path at each checkpoint, is recorded at acquisition and never revised.</li>
-<li><strong>Compare at the same age.</strong> A cohort that has not reached a checkpoint shows as pending, not as a low number.</li>
+<ol class="steps">
+<li><strong>Link</strong>Connect ad spend to the customers it brought in.</li>
+<li><strong>Measure</strong>Track each customer's revenue and costs across five products.</li>
+<li><strong>Expect</strong>Record what each customer should contribute, at signup.</li>
+<li><strong>Compare</strong>Check expected against actual at the same customer age.</li>
 </ol>
-</section>
-
-<section>
-<h2>Validation</h2>
-<div class="grid stats">
-<div class="card"><strong>5,000</strong>synthetic customers, Jan 2025 – Jun 2026</div>
-<div class="card"><strong>329</strong>controlled comparisons matched</div>
-<div class="card"><strong>10</strong>refund regression cases passed after correction</div>
-<div class="card"><strong>26</strong>analytical outputs reproduced on a clean rerun</div>
-</div>
 </section>
 
 <section>
@@ -68,7 +64,7 @@ ol{margin:0;padding-left:20px}li{margin-bottom:6px}
 <ul>
 <li><a href="https://github.com/gabreyrom/customer-acquisition-bi/blob/main/Second_Presentation.pdf">Presentation (PDF)</a></li>
 <li><a href="https://github.com/gabreyrom/customer-acquisition-bi/blob/main/docs/04_validation_report.md">Validation report</a></li>
-<li><a href="https://github.com/gabreyrom/customer-acquisition-bi/blob/main/exhibits/tables/d2_customer_trace.md">Worked customer example</a>: one customer's 90-day contribution reconciled across five products</li>
+<li><a href="https://github.com/gabreyrom/customer-acquisition-bi/blob/main/exhibits/tables/d2_customer_trace.md">Worked customer example</a></li>
 <li><a href="https://github.com/gabreyrom/customer-acquisition-bi/blob/main/docs/06_architecture_decisions.md">Architecture decisions</a></li>
 <li><a href="https://github.com/gabreyrom/customer-acquisition-bi">Project repository</a></li>
 </ul>
