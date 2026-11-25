@@ -98,13 +98,13 @@ Copy only the **On slide** text, visual labels, and footers. The timing, layout,
 
 **On slide**
 
-- **Growth leadership** · Filter quarterly reviews by channel, signup month and age. Compare CAC, ROAS, predicted LTV/CAC and realized contribution. Inspect coverage and maturity. Product-level cohort drilldown is proposed.
-- **Campaign manager** · Review campaign spend, signups, CAC, activation and acquisition-time forecast by day or week.
+- **Growth leadership** · Pick a start cohort and compare it with the next 3–12 cohorts at 30, 90, 180 and 365 days. Payback sets each cohort's acquisition spend against the contribution it returned: January–July 2025 passes break-even between 90 and 180 days. Read contribution per customer by channel, channel mix, CAC, ROAS and contribution per dollar spent. Pending ages stay visible. Product-level cohort drilldown is proposed.
+- **Campaign manager** · Select a channel, then a campaign, and a 7-, 14- or 28-day window. Review spend against plan, signups, CAC, activation and acquisition-time forecast, each against the prior period. Data checks list missing inputs first.
 - **F1, June 4** · $97.77 actual spend, 3 signups, $32.59 daily CAC. **Missing plan → pacing unavailable.** **0 mature signups → 30-day activation pending.**
 
-**Layout and visual:** One-third strategic crop showing the cohort trajectory and maturity labels. Give the two-thirds operational area to F1 actual versus plan, with the June 4 missing-plan annotation and pending activation cue. Keep the full comparable-age explanation on slide 06. Use the [PowerPoint chart extracts](../exhibits/presentation/dashboard_chart_sources.md) and dashboard tables for legible labels.  
-**Footer/source:** Campaign-day and channel-cohort marts. Daily batch prototype. Campaign plans are externally assumed inputs. Daily CAC is a monitoring proxy.  
-**Say:** The strategic chart makes checkpoints and unavailable periods visible. On June 2 spend persists with zero registrations. On June 4 the operational view shows unavailable pacing and pending activation. The detail view separates mature activated, mature not activated and pending signups.
+**Layout and visual:** One-third strategic area with the [payback chart](../exhibits/presentation/cohort_payback.svg) or the [cumulative contribution chart](../exhibits/presentation/customer_cohort_evolution.svg) (January–July 2025 cohorts). Give the two-thirds operational area to [F1 spend versus plan](../exhibits/presentation/campaign_daily_spend.svg), with June 4 shaded as missing plan, and the [activation chart](../exhibits/presentation/campaign_activation_maturity.svg) showing all signups pending. Keep the full comparable-age explanation on slide 06. Use the [PowerPoint chart extracts](../exhibits/presentation/dashboard_chart_sources.md) and dashboard tables for legible labels.  
+**Footer/source:** Campaign-day and channel-cohort marts, exported to the dashboards by `build_dashboards.py`. Daily batch prototype. Campaign plans are externally assumed inputs. Daily CAC is a monitoring proxy.  
+**Say:** The strategic chart follows several cohorts at the same customer age, so a cohort that is too young simply stops instead of looking weak. On the operational side, the data checks flag F1's missing June 4 plan before anyone reads pacing. June 2 shows spend with zero signups. Activation is still pending because no signup is 30 days old; a complete week such as May 1–7 shows 75% activation across all channels.
 
 ## 08 · Independent checks reconcile the implemented results
 **Question:** Q4. **Time:** 1:20.  

@@ -82,7 +82,7 @@ Baseline Google / Meta / affiliates / unknown multipliers: 1.00 / .95 / .90 / 1.
 | Forecast sensitivity | Identical customers, frozen features and spend. Removing multipliers adds $11,679.11 to summed day-365 predictions. The paid-channel mean spread changes from $5.52 to $0.41. The change follows from model assumptions. |
 | Full visible ledger mix | The mortgage component contributes $888,044.36 of $926,076.41. This is a full-history synthetic arithmetic cross-check, with a separate window from the historical cohorts. |
 
-For the supporting full cohort extract, show the selected 90-day baseline/calendar rows from the strategic wireframe. Include coverage, counts and metrics. Keep product concentration and cohort comparisons separately labeled. Sources: D sensitivity and reconciliation assets, strategy wireframe and forecast model.
+For the supporting full cohort extract, show the selected 90-day baseline/calendar rows from the strategic dashboard (cohort table and channel views at 90 days). Include coverage, counts and metrics. Keep product concentration and cohort comparisons separately labeled. Sources: D sensitivity and reconciliation assets, strategic dashboard and forecast model.
 
 ## D1 · Independent expected versus observed
 

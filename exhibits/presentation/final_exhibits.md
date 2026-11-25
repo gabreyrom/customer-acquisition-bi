@@ -1,6 +1,6 @@
 # Main-deck visual kit
 
-Use the editable Mermaid diagrams and tables as construction masters. The [trajectory chart](customer_age_trajectory.svg) is a vector export backed by the [four source values](../../data/analytical_outputs/worked_customer_summary.csv). The dashboard wireframes open offline in a browser. All quantitative examples are synthetic.
+Use the editable Mermaid diagrams and tables as construction masters. The [trajectory chart](customer_age_trajectory.svg) is a vector export backed by the [four source values](../../data/analytical_outputs/worked_customer_summary.csv). The dashboards open offline in a browser and online at gabrielreynosoromero.com/customer-acquisition-bi. All quantitative examples are synthetic.
 
 ## 01 · Alignment
 
@@ -114,9 +114,9 @@ These columns demonstrate the same aggregation and denominator rules across two 
 
 ## 07 · Dashboard extracts
 
-**[Strategic wireframe](strategic_dashboard_extract.html).** Use [cohort evolution](customer_cohort_evolution.svg) with its March/September mature counts. The [channel efficiency chart](channel_efficiency_comparison.svg) is available as supporting evidence. Keep maturity, coverage and method labels alongside paid metrics. Use the whole-history product panel only in the appendix.
+**[Strategic dashboard](../../site/strategic_acquisition.html).** Lead with [payback](cohort_payback.svg): what each January–July 2025 cohort cost against the contribution it returned by 365 days (January 4.5×). Then use the [cumulative contribution chart](customer_cohort_evolution.svg): January–July 2025 cohorts, January highlighted against its fixed expectation. Supporting views: [contribution by channel at 90 days](channel_contribution_by_cohort.svg), [signups by channel](cohort_channel_mix.svg) and [90-day revenue ROAS by cohort](channel_efficiency_comparison.svg). Keep maturity and coverage labels alongside paid metrics. Use the whole-history product panel only in the appendix.
 
-**[Operational wireframe](operational_dashboard_extract.html).** Highlight F1 June 1–7, 2026 with [daily spend versus plan](campaign_daily_spend.svg) and [activation maturity](campaign_activation_maturity.svg). The [chart mapping](dashboard_chart_sources.md) lists cumulative spend, registrations and CAC extracts. Use these rows if embedding an offline table.
+**[Operational dashboard](../../site/operational_campaigns.html).** Highlight F1 June 1–7, 2026 with [daily spend versus plan](campaign_daily_spend.svg) and [activation within 30 days](campaign_activation_maturity.svg). The [chart mapping](dashboard_chart_sources.md) lists the month-to-date spend, signups and CAC extracts. The live dashboard opens on all channels for May 1–7, 2026 (complete plans, 75% activation); the F1 week is the investigation example. Use these rows if embedding an offline table.
 
 | F1 UTC date | Actual spend | Planned spend | Signups | Interpretation |
 |---|---:|---:|---:|---|

@@ -14,6 +14,7 @@ flowchart TB
   H["SQL builds activation and customer-age history"]
   R["SQL builds cohort and campaign marts"]
   V["Python compares the independent fixture and exports evidence"]
+  B["Python builds the dashboard data files and slide extracts"]
   S --> I
   I --> A
   A --> F
@@ -21,6 +22,7 @@ flowchart TB
   P --> H
   H --> R
   R --> V
+  R --> B
 ```
 
 The packaged run executes the same transformations on the controlled fixture first, using primary, replay, pre-correction and post-correction recorded cutoffs. Full processing is gated on that comparison. Each run loads the frozen physical schema into a fresh local DuckDB connection. The bundle persists sorted Parquet tables with run IDs and reconciliation/exhibit extracts with a JSON run manifest.
@@ -37,6 +39,7 @@ The packaged run executes the same transformations on the controlled fixture fir
 | Histories | SQL evaluates the 30/90/180/365 exclusive endpoints in UTC. A mature customer without activity has zero recognized amounts. A pending customer has null realized amounts. Late records can enter a later recorded snapshot without moving the effective boundary. |
 | Cohorts | SQL aggregates customer money and forecast numerators before joining independently aggregated spend. A whole calendar month must have elapsed through its age horizon for realized comparison. Unknown and spend-only rows are retained. Spend-only CAC/ROAS are null. Revenue ROAS is evaluated at 90 days. Other age rows retain realized contribution/spend where mature. |
 | Campaign days | SQL creates a campaign date spine with spend, registrations, mature activation, initial forecast, CAC and budget pacing. Pacing requires observed actuals and a complete positive cumulative plan. Null plans stay null. Monthly plan windows support daily monitoring; weekly summaries can be formed from daily supporting counts. |
+| Dashboards | `src/build_dashboards.py` reads the cohort and campaign-day marts for the manifest run, checks count invariants and writes `site/data/strategic.js` and `site/data/operational.js` with the snapshot cutoff. The static site in `site/` reads only these files. `src/export_presentation_extracts.py` renders the slide SVG/PNG extracts with the dashboards' own chart code. See the [reporting specification](05_reporting_spec.md). |
 | Exports | Python keeps run parameters, hash-checked source metadata, output hashes and row counts. Financial reconciliation ties each accepted base component to the signed ledger and adjustments. Separate audits reconcile each mature customer checkpoint and cohort, and each allocation method to campaign-day source spend. |
 
 Use [the field dictionary](02_data_dictionary.md) and [the frozen mapping](02_source_target_mapping.md) for join keys and grain. In the export, `source_disposition.parquet` links raw delivery ID to disposition and ledger event, and `financial_event.parquet` carries canonical event IDs, timestamps and original event pointers. Rejoin the original source by `delivery_id` through `canonical_activity.parquet`. The compact worked example includes raw rate/basis and signed results side by side.
@@ -50,6 +53,13 @@ python3 src/ingest.py --controlled-only --output /tmp/mis636-controlled
 python3 src/ingest.py --output /tmp/mis636-analytical
 ```
 
+Then rebuild the dashboards and their slide extracts. `build_dashboards.py` reads `data/analytical_outputs` by default; pass `--outputs /tmp/mis636-analytical` to use a fresh run. The extract export also needs Google Chrome (or `CHROME=/path/to/chrome`) and `rsvg-convert` from librsvg.
+
+```sh
+python3 src/build_dashboards.py
+python3 src/export_presentation_extracts.py
+```
+
 Primary full snapshot uses July 1, 2026 00:00 UTC as both exclusive effective cutoff and inclusive recorded cutoff. The controlled comparison report lists other recorded cutoffs explicitly. Parquet and CSV outputs are sorted for inspection. The manifest records the specific source and output hashes; physical file hashes can vary with DuckDB release or encoding options. The charged-off principal convention is realized loss with subsequent recoveries. It is a simplified synthetic design.
 
 ## Evidence for D and E
@@ -61,6 +71,7 @@ Primary full snapshot uses July 1, 2026 00:00 UTC as both exclusive effective cu
 | Actual versus expected by cohort age | channel_cohort.parquet, cohort_comparison.csv and scenario_comparison.csv |
 | Spend-allocation sensitivity | allocation_comparison.csv and spend_allocation.parquet |
 | Operational monitoring | campaign_performance_day.parquet and campaign_monitoring.csv |
+| Dashboards | site/data/strategic.js and site/data/operational.js, generated from the two marts above |
 | Reconciliation | financial_reconciliation.csv, history_reconciliation.csv, cohort_reconciliation.csv, marketing_reconciliation.csv and pipeline_manifest.json |
 
 The production design remains a daily batch warehouse/SQL/dbt approach with retained source snapshots and BI delivery, as contrasted with Assignment 1. This is a local DuckDB and static extract implementation. Production change capture, access controls, warehouse performance, and causal attribution remain outside the evidence. The C-side comparisons are implementation checks against D’s independent expectations. D Stage 2 still owns independent review of the observed evidence, exception handling and architecture claims.

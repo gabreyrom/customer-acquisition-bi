@@ -27,16 +27,56 @@ Assignment 1 proposed a reporting architecture centered on 90-day revenue ROAS. 
 3. **Keep a fixed view of what was expected at signup.** The prototype records a rule-based estimate of first-year contribution using the information available at acquisition. It preserves that estimate and its expected path at 30, 90, 180, and 365 days as actual activity comes in.
 4. **Compare customers at the same age.** The reporting layer shows expected and realized contribution over equivalent observation windows. If a group has not had enough time to reach a checkpoint, its result remains pending. Campaign pacing is unavailable when the necessary plan data is missing.
 
-## What you can explore
+## Dashboards
+
+Live at **https://gabrielreynosoromero.com/customer-acquisition-bi/**, or open [`site/index.html`](site/index.html) from a downloaded copy (no server needed, JavaScript enabled). Both dashboards use the fixed synthetic snapshot as of July 1, 2026.
+
+### [Strategic Acquisition Performance](site/strategic_acquisition.html)
+
+For growth leadership deciding where acquisition budget creates value. Pick a **start cohort** (signup month) and compare it with the **next 3, 6, 9 or 12 cohorts**. Filter by acquisition channel, customer age and expected-value assumptions.
+
+| View | What it shows |
+|---|---|
+| Payback | What each cohort cost to acquire (bars split by paid channel) against the contribution its customers returned by a chosen age (30, 90, 180 or 365 days), with the payback multiple above each cohort. A table shows the multiple at every age by channel and when each channel pays back. Switch to revenue for the gross view. |
+| Cohort summary | Cohorts and customers in range, the start cohort's realized-vs-expected multiple, paid-channel coverage, and average contribution per customer at 30, 90, 180 and 365 days. |
+| Cumulative contribution per customer | One line per cohort as its customers age. The start cohort is highlighted next to the contribution expected at signup. Hover over a line to isolate a cohort. |
+| Contribution per customer by channel | One line per channel across the cohorts at a chosen age, plus the all-signups average. |
+| Cohort table | Cohorts × ages: realized contribution per customer with the expectation underneath, shaded by value. Pending cells show how many customers have reached that age. |
+| Signups by acquisition channel | Each cohort's channel mix, which helps explain why cohorts differ. |
+| Channel efficiency by cohort | CAC, 90-day revenue ROAS or realized contribution per $1 of spend for each paid channel. |
+
+### [Operational Campaign Monitoring](site/operational_campaigns.html)
+
+For performance marketing tracking daily pacing and weekly campaign results. Choose a **channel**, then one of its **campaigns** or all of them, a **start date** and a **7-, 14- or 28-day period**. It opens on all channels for May 1–7, 2026, the latest week with complete plans and fully observed activation.
+
+| View | What it shows |
+|---|---|
+| Period summary | Spend against plan, signups, cost per signup, 30-day activation and expected first-year contribution, each compared with the prior period. |
+| Data checks | Missing plans (named by campaign), spend days with no signups, and signups too young to judge activation, listed before any chart. |
+| Channels and campaigns | Every channel with its campaigns and an overall total for the same period. Click a row to select it. |
+| Daily charts | Spend vs plan, month-to-date pacing, signups, cost per signup and activation, with problem days shaded. |
+| Daily detail | One row per day with flagged gaps and a totals row. |
+
+To see how missing inputs are handled, select Paid affiliates → F1 from June 1, 2026: June 4 has no plan, and every signup's activation is still pending.
+
+### Rebuilding the dashboards
+
+The dashboards read `site/data/*.js`, which are generated from the pipeline's analytical outputs:
+
+```sh
+python3 src/build_dashboards.py               # site/data/ from data/analytical_outputs
+python3 src/export_presentation_extracts.py   # slide SVG/PNG charts (needs Chrome and rsvg-convert)
+```
+
+Pushing to `main` republishes `site/` through GitHub Pages.
+
+## More to explore
 
 | Start here | What to look for |
 |---|---|
-| [Strategic Acquisition Performance dashboard](site/strategic_acquisition.html) | Compare customer contribution trajectories across signup cohorts. Change the channel, maturity checkpoint, or forecast scenario. The companion efficiency chart lets you switch between metrics with different units. |
-| [Operational Campaign Monitoring dashboard](site/operational_campaigns.html) | Follow daily and cumulative actual versus planned spend, registrations, acquisition cost, and activation. The F1 example shows how a missing plan and an incomplete activation window appear. |
 | [Worked customer example](exhibits/tables/d2_customer_trace.md) | Follow an underlying balance through revenue recognition, then reconcile one customer's 90-day contribution across five products. |
-| [Presentation materials](presentation/README.md) | Find the ten-slide plan, speaker notes, appendix, evidence references, and PowerPoint assembly guide. |
-
-To use the dashboards, download the repository and open the HTML files in a browser with JavaScript enabled. The dashboard filters run locally against a fixed synthetic snapshot. [PowerPoint-ready charts and extracts](exhibits/presentation/) are also available.
+| [Presentation materials](presentation/README.md) | The ten-slide plan, speaker notes, appendix, evidence references, and PowerPoint assembly guide. |
+| [PowerPoint-ready charts](exhibits/presentation/) | SVG and PNG extracts of the dashboard charts, with their [sources and filters](exhibits/presentation/dashboard_chart_sources.md). |
 
 ## What the validation established
 
@@ -56,8 +96,9 @@ A production implementation would need live product-system feeds, acquisition at
 |---|---|
 | [docs](docs/) | Business and measurement specifications, reporting definitions, validation report, and architecture decisions |
 | [data](data/) | Synthetic input extracts, controlled validation cases, and analytical outputs |
-| [exhibits](exhibits/) | Dashboard blueprints, charts, technical diagrams, and validation evidence |
+| [site](site/) | The published dashboards: pages, shared chart code and generated data files |
+| [exhibits](exhibits/) | Slide chart extracts, technical diagrams, and validation evidence |
 | [presentation](presentation/) | Slide-ready copy, speaker cues, appendix material, and submission checklist |
-| [src](src/) and [tests](tests/) | Reproducible pipeline and regression checks |
+| [src](src/) and [tests](tests/) | Reproducible pipeline, dashboard build, and regression checks |
 
 For technical review or reproduction, start with the [frozen specification](docs/07_specification_freeze_v1.0.md) and the [pipeline guide](docs/03_pipeline_design.md).
